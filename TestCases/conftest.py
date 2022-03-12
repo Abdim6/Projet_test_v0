@@ -8,8 +8,28 @@ from random import random
 from selenium import webdriver
 import pytest
 import string
+from PageObjects.ObPage import LoginmaPage
+from PageObjects.HomePage import HomePage
+import time
+from Utilities.readProperties import ReadConfig
+from Utilities.customLogger import LogGen
 
-##### Un setup qui lance le driver + le tearndown qui kill le driver à la fin de test #####
+##### Un setup qui lance le driver et charge l'application + un tearndown qui kill le driver à la fin de test #####
+@pytest.fixture
+def setup_4():
+    baseURL = ReadConfig.getApplicationURL()
+    driver=webdriver.Chrome()
+    print("")
+    print("Nous utilisons Chrome ......")
+    # driver.implicitly_wait(3)
+    driver.maximize_window()
+    driver.get(baseURL)
+
+    yield driver
+
+    driver.quit()
+
+##### Un setup qui lance le driver + un tearndown qui kill le driver à la fin de test #####
 @pytest.fixture
 def setup_3():
     driver=webdriver.Chrome()
@@ -29,7 +49,8 @@ def setup_2():
     print("Nous utilisons Chrome ......")
     driver.maximize_window()
     return driver
-############### Un setup pour lancer le driver + choisir le browser au choix #############
+
+############### Un setup pour lancer le driver + permet de choisir le browser au choix #############
 @pytest.fixture
 def setup_1(browser):
     if browser == "chrome":
@@ -46,7 +67,7 @@ def setup_1(browser):
     driver.maximize_window()
     return driver
 
-############# Un setup pour lancer le driver avec le browser souhaité : ###############
+############# Config pour le choix de browser souhaité : ###############
 def pytest_addoption(parser):   #this will ger rhe value from CLI/hooks
     parser.addoption("--browser")
 
@@ -71,3 +92,50 @@ def pytest_metadata(metadata):
 
 def pytest_html_report_title(report):
     report.title = "My very own title!"
+
+######################## Classe connexion Générique #######################
+
+# class Connexion():
+#     logger = LogGen.loggen()
+#     username = ReadConfig.getUserEmail()
+#     password = ReadConfig.getUserPassword()
+    
+#     def Seconnecter (self,setup_4):
+#     # def test_homePageTitle(self,setup_4,username,password):
+#         self.logger.info("***************** DEBUT - De la connexion ****************")
+#         self.driver = setup_4
+
+#         # act_title = self.driver.title
+#         # time.sleep(2)
+#         # if act_title == "6play, regardez des programmes TV en Replay ou en Direct":
+#         #     self.logger.info("***************** Test titre de la page OK ****************")
+#         #     assert True
+#         # else:
+#         #     print(act_title)
+#         #     self.driver.save_screenshot(".\screenshot\\"+"page_title_1.png")
+#         #     self.logger.error("***************** Test titre de la page KO ****************")
+#         #     assert False
+        
+#         "Cliquer sur la modale + btn mon compte"
+#         self.hp=HomePage(self.driver)
+#         self.hp.clickaccepterTCF() 
+#         time.sleep(2)
+#         self.hp.clickMonCompteBtn() 
+#         time.sleep(2)
+
+#         "Saisi des ID dans OB"
+#         self.lp=LoginmaPage(self.driver) 
+#         self.lp.setUsername(self.username)
+#         time.sleep(1)
+#         self.lp.setPassword(self.password)
+#         time.sleep(1)
+#         self.lp.clickLogin()   
+#         time.sleep(2)
+
+#         "Vérification sur retour Home page"
+#         self.hp.clickHomeBtn()
+#         time.sleep(2)
+#         self.hp.checkObjetHomePage()
+#         time.sleep(2)
+#         self.logger.info("***************** FIN - Connexion User ****************")
+    
