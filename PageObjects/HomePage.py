@@ -39,6 +39,14 @@ class HomePage:
         element = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, Locators.accepter_btnTCF_CSS)))
         # self.driver.find_element(By.CSS_SELECTOR,self.accepter_btnTCF_CSS).click()
         element.click()
+        
+    # def clickaccepterConsent(self):
+    #     element = self.wait.until(EC.element_to_be_clickable((By.CLASS_NAME, Locators.consent_accepter_Class)))
+    #     # self.driver.find_element(By.CSS_SELECTOR,self.accepter_btnTCF_CSS).click()
+    #     element.click()
+
+    def clickaccepterConsent(self):
+        self.driver.find_element(By.CLASS_NAME,Locators.consent_accepter_Class).click()
 
     def clickMonCompteBtn(self):
         # self.driver.find_element(By.XPATH,self.moncompte_btn_xml).click()

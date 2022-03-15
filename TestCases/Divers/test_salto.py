@@ -77,10 +77,9 @@ from selenium import webdriver
 from PageObjects.ObPage import LoginmaPage
 from PageObjects.HomePage import HomePage
 import time
-from Utilities.readProperties import ReadConfig
+from Utilities.readProperties import ReadTitlePage
 from Utilities.customLogger import LogGen
 from TestCases.conftest import Connexion
-# from testCases import conftest 
 
 
 "ce bloc devrait se trouver dans un setup, en commun pour tous les tests"
@@ -92,7 +91,8 @@ class Test_001_Login:
         self.logger.info("***************** DEBUT - Test_001_Login ****************")
         Connexion.Seconnecter(self, setup_4)
         self.logger.info("***************** FIN - Test_001_Login ****************")
-        self.driver.close()
+        # self.driver.close()
 """
 re exécuter ce test puis analyser le resultat obtenu - des tests effectués avec la connexion mise dans conftest
 """
+

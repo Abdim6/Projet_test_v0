@@ -5,7 +5,7 @@ class Locators():
     moncompte_btn_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > header > div > div > nav > div.m4392j-1.imWKGD > ul > li:nth-child(5) > button"
     Chaines_btn_Class =""
     recherche_btn_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > header > div > div > nav > div.m4392j-1.imWKGD > ul > li:nth-child(4) > a"
-    
+    consent_accepter_Class = "sc-1esye45-2.dVskuE.sc-1p0v3oj-0"
     accepter_btnTCF_CSS = "body > div:nth-child(12) > aside > div > div.suptlw-3.dTtZno > form > div.s9pqpz-4.eGAKcX.sc-18bqyzn-0.gXHDvG > div > button.sc-1esye45-2.dVskuE.sc-1veuio6-0.dktssj.s9pqpz-2.hEklsz.is-primary > span"
     HomeBtn_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > header > div > div > nav > div.m4392j-1.imWKGD > ul > li:nth-child(3)"
     objetHomePage_CSS = "#main > div > section:nth-child(3) > div.y84eg7-0.sc-8pi7if-0.LuxLU > h1"

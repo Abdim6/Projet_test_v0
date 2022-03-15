@@ -1,4 +1,5 @@
 "Ici est un cdt de connexion - lié aux objets de la page loginPage."
+"Trouve une solution pour un time out auto de 1sec automatique"
 
 import pytest
 from selenium import webdriver
@@ -6,41 +7,23 @@ from PageObjects.ObPage import LoginmaPage
 from PageObjects.HomePage import HomePage
 from PageObjects.Divers.MonCompte import MonCompte
 import time
+from TestCases.conftest import setup_AvecConnexionUser
 from Utilities.readProperties import ReadConfig
 from Utilities.customLogger import LogGen
 
-
-"ce bloc devrait se trouver dans un setup, en commun pour tous les tests"
-class Test_003_Login:
-    "Données en DUR"
-    baseURL = "https://www.6play.fr/"
-    username = "abdi.bilehm6@gmail.com"
-    password = "bonjourA1"
-    # logger = LogGen.loggen()
+class Test_002_ModifierDonneesUser:
+    logger = LogGen.loggen()
 
     @pytest.mark.mesTests
-    def test_homePageTitle(self,setup_2):
-        self.driver = setup_2
-        self.driver.get(self.baseURL)
-       
-        "Cliquer sur la modale + mon compte"
-        self.hp=HomePage(self.driver)
-        self.hp.clickaccepterTCF() 
-        time.sleep(2)
-
-        self.hp.clickMonCompteBtn() 
-        time.sleep(2)
-
-        "Saisi des ID dans OB pour se connecter" 
-        self.lp=LoginmaPage(self.driver) 
-        self.lp.setUsername(self.username)
-        time.sleep(1)
-        self.lp.setPassword(self.password)
-        time.sleep(1)
-        self.lp.clickLogin()   
-        time.sleep(2)
+    def test_homePageTitle(self,setup_AvecConnexionUser):
+        self.logger.info("***************** DEBUT - test_002_ModifierDonneesUser ****************")
+        self.driver = setup_AvecConnexionUser
 
         "Modifier les données de User"
+        self.hp=HomePage(self.driver)
+        time.sleep(2)
+        self.hp.clickMonCompteBtn() 
+        time.sleep(2)
         self.mn = MonCompte(self.driver)
         self.mn.clickgenerInfo()
         time.sleep(1)
@@ -51,22 +34,19 @@ class Test_003_Login:
         self.mn.setNom("Bileh")
         time.sleep(2)
         self.mn.clickValider()
-        time.sleep(5)
+        time.sleep(2)
         "Retour sur la home page + ajout de programme dans le favoris"
         self.hp.clickHomeBtn()
-        time.sleep(1)
+        time.sleep(2)
         self.hp.clickSurRecherche()
         time.sleep(1)
         self.hp.clickDernierReplay()
         time.sleep(3)
         self.hp.clickAjoutFavoris()
-        time.sleep(5)
+        time.sleep(2)
         self.hp.clickMonCompteBtn()
-        time.sleep(1)
+        time.sleep(5)
         self.hp.clickdeco()
         time.sleep(3)
 
-        print("Le parcours est complet - fermeture de driver .... ")
-        self.driver.close()
-
-        
+        self.logger.info("***************** FIN - test_002_ModifierDonneesUser ****************")

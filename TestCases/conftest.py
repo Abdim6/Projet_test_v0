@@ -14,9 +14,9 @@ import time
 from Utilities.readProperties import ReadConfig
 from Utilities.customLogger import LogGen
 
-##### Un setup qui lance le driver et charge l'application + un tearndown qui kill le driver à la fin de test #####
+##### Un setup qui lance le driver et charge l'application AVEC connexion + un tearndown qui kill le driver à la fin de test #####
 @pytest.fixture
-def setup_4():
+def setup_AvecConnexionUser():
     baseURL = ReadConfig.getApplicationURL()
     driver=webdriver.Chrome()
     print("")
@@ -24,6 +24,57 @@ def setup_4():
     # driver.implicitly_wait(3)
     driver.maximize_window()
     driver.get(baseURL)
+    
+    logger = LogGen.loggen()
+    username = ReadConfig.getUserEmail()
+    password = ReadConfig.getUserPassword()
+    logger.info("***************** DEBUT - De la connexion ****************")
+    
+    "Cliquer sur la modale + btn mon compte"
+    hp=HomePage(driver)
+    hp.clickaccepterTCF() 
+    # time.sleep(2)
+    # hp.clickaccepterConsent()
+    time.sleep(2)
+    hp.clickMonCompteBtn() 
+    time.sleep(2)
+
+    "Saisi des ID dans OB"
+    lp=LoginmaPage(driver) 
+    lp.setUsername(username)
+    time.sleep(1)
+    lp.setPassword(password)
+    time.sleep(1)
+    lp.clickLogin()   
+    time.sleep(2)
+
+    "Vérification sur retour Home page"
+    hp.clickHomeBtn()
+    time.sleep(2)
+    hp.checkObjetHomePage()
+    time.sleep(2)
+    logger.info("***************** FIN - Connexion User ****************")
+
+    yield driver
+
+    driver.quit()
+
+
+##### Un setup qui lance le driver et charge l'application + un tearndown qui kill le driver à la fin de test #####
+@pytest.fixture
+def setup_SansConnexionUser():
+    baseURL = ReadConfig.getApplicationURL()
+    driver=webdriver.Chrome()
+    print("")
+    print("Nous utilisons Chrome ......")
+    # driver.implicitly_wait(3)
+    driver.maximize_window()
+    driver.get(baseURL)
+    hp=HomePage(driver)
+    hp.clickaccepterTCF() 
+    time.sleep(2)
+    # hp.clickaccepterConsent()
+    # time.sleep(2)
 
     yield driver
 
@@ -125,9 +176,9 @@ def pytest_html_report_title(report):
 
 #         "Saisi des ID dans OB"
 #         self.lp=LoginmaPage(self.driver) 
-#         self.lp.setUsername(self.username)
+#         self.lp.setUsername(Connexion.username)
 #         time.sleep(1)
-#         self.lp.setPassword(self.password)
+#         self.lp.setPassword(Connexion.password)
 #         time.sleep(1)
 #         self.lp.clickLogin()   
 #         time.sleep(2)
@@ -138,4 +189,4 @@ def pytest_html_report_title(report):
 #         self.hp.checkObjetHomePage()
 #         time.sleep(2)
 #         self.logger.info("***************** FIN - Connexion User ****************")
-    
+############################################ 
