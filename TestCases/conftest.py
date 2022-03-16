@@ -48,11 +48,6 @@ def setup_AvecConnexionUser():
     lp.clickLogin()   
     time.sleep(2)
 
-    "Vérification sur retour Home page"
-    hp.clickHomeBtn()
-    time.sleep(2)
-    hp.checkObjetHomePage()
-    time.sleep(2)
     logger.info("***************** FIN - Connexion User ****************")
 
     yield driver

@@ -21,8 +21,8 @@ class Test_002_ModifierDonneesUser:
 
         "Modifier les données de User"
         self.hp=HomePage(self.driver)
-        time.sleep(2)
-        self.hp.clickMonCompteBtn() 
+        # time.sleep(2)
+        # self.hp.clickMonCompteBtn() 
         time.sleep(2)
         self.mn = MonCompte(self.driver)
         self.mn.clickgenerInfo()
@@ -39,13 +39,13 @@ class Test_002_ModifierDonneesUser:
         self.hp.clickHomeBtn()
         time.sleep(2)
         self.hp.clickSurRecherche()
-        time.sleep(1)
-        self.hp.clickDernierReplay()
         time.sleep(3)
+        self.hp.clickDernierReplay()
+        time.sleep(5)
         self.hp.clickAjoutFavoris()
         time.sleep(2)
         self.hp.clickMonCompteBtn()
-        time.sleep(5)
+        time.sleep(5)    #ce time out est tres important, reflechi comment l'optimiser
         self.hp.clickdeco()
         time.sleep(3)
 

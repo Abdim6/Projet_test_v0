@@ -8,12 +8,6 @@ from selenium.webdriver.support.ui import Select
 from PageObjects.Locator import Locators
 
 class MonCompte:
-    # btn_gererInfos_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > div.gvmwfe-0.o6a45d-0.kfijhj > a"
-    # btn_modifier_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > div > div.gvmwfe-0.o6a45d-0.kfijhj > button"
-    # textbox_firstname_id = "firstName"
-    # textbox_lastname_id = "lastName"
-    # btn_valider_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > form > div.gvmwfe-0.o6a45d-0.kfijhj > button.sc-1esye45-2.bTcnKU.o6a45d-1.hCltVO.is-primary"
-    
     def __init__(self, driver):
         self.driver = driver
     

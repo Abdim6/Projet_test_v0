@@ -10,18 +10,6 @@ from selenium.webdriver.support.ui import Select
 from PageObjects.Locator import Locators
 
 class LoginmaPage:
-    # textbox_username_id = "email"
-    # textbox_password_id = "password"
-    # button_login_xml = "/html/body/div[3]/div/div/div/div/div[2]/form/button"
-    # button_inscription = "body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a"
-    # email_inscription ="email"
-    # pwd_inscription ="password"
-    # button_inscrire_new = "body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div.sc-1skm6pc-0.kosLNi.kqtu9n-2.hsHvHs > form > div.sc-1skm6pc-1.dkVizr > button"
-    # liste_genre = "gender"
-    # section_age = "birthdate"
-    # button_terminer = "body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div > form > div.sc-1skm6pc-1.dkVizr > button"
-
-    
     def __init__(self, driver):
         self.driver = driver
     
