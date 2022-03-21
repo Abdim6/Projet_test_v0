@@ -68,6 +68,7 @@ def setup_SansConnexionUser():
     hp=HomePage(driver)
     hp.clickaccepterTCF() 
     time.sleep(2)
+    "Une feature(page) desactivée mais qui reviendra bientôt"
     # hp.clickaccepterConsent()
     # time.sleep(2)
 
@@ -138,50 +139,3 @@ def pytest_metadata(metadata):
 
 def pytest_html_report_title(report):
     report.title = "My very own title!"
-
-######################## Classe connexion Générique #######################
-
-# class Connexion():
-#     logger = LogGen.loggen()
-#     username = ReadConfig.getUserEmail()
-#     password = ReadConfig.getUserPassword()
-    
-#     def Seconnecter (self,setup_4):
-#     # def test_homePageTitle(self,setup_4,username,password):
-#         self.logger.info("***************** DEBUT - De la connexion ****************")
-#         self.driver = setup_4
-
-#         # act_title = self.driver.title
-#         # time.sleep(2)
-#         # if act_title == "6play, regardez des programmes TV en Replay ou en Direct":
-#         #     self.logger.info("***************** Test titre de la page OK ****************")
-#         #     assert True
-#         # else:
-#         #     print(act_title)
-#         #     self.driver.save_screenshot(".\screenshot\\"+"page_title_1.png")
-#         #     self.logger.error("***************** Test titre de la page KO ****************")
-#         #     assert False
-        
-#         "Cliquer sur la modale + btn mon compte"
-#         self.hp=HomePage(self.driver)
-#         self.hp.clickaccepterTCF() 
-#         time.sleep(2)
-#         self.hp.clickMonCompteBtn() 
-#         time.sleep(2)
-
-#         "Saisi des ID dans OB"
-#         self.lp=LoginmaPage(self.driver) 
-#         self.lp.setUsername(Connexion.username)
-#         time.sleep(1)
-#         self.lp.setPassword(Connexion.password)
-#         time.sleep(1)
-#         self.lp.clickLogin()   
-#         time.sleep(2)
-
-#         "Vérification sur retour Home page"
-#         self.hp.clickHomeBtn()
-#         time.sleep(2)
-#         self.hp.checkObjetHomePage()
-#         time.sleep(2)
-#         self.logger.info("***************** FIN - Connexion User ****************")
-############################################ 
