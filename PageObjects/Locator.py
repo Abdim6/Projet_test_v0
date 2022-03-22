@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 class Locators():
     #--- Page Home Page ---
+    # moncompte_btn = (By.CSS_SELECTOR, "---")
     moncompte_btn_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > header > div > div > nav > div.m4392j-1.imWKGD > ul > li:nth-child(5) > button"
     Chaines_btn_Class =""
     recherche_btn_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > header > div > div > nav > div.m4392j-1.imWKGD > ul > li:nth-child(4) > a"
