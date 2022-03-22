@@ -1,0 +1,9 @@
+[32mINFO    [0m root:test_homePage_chaines.py:23 ***************** DEBUT - Test_003_Login ****************
+[32mINFO    [0m root:test_homePage_chaines.py:56 ***************** Test titre de la page 0 - OK ****************
+[32mINFO    [0m root:test_homePage_chaines.py:56 ***************** Test titre de la page 1 - OK ****************
+[32mINFO    [0m root:test_homePage_chaines.py:56 ***************** Test titre de la page 2 - OK ****************
+[32mINFO    [0m root:test_homePage_chaines.py:56 ***************** Test titre de la page 3 - OK ****************
+[32mINFO    [0m root:test_homePage_chaines.py:56 ***************** Test titre de la page 4 - OK ****************
+[32mINFO    [0m root:test_homePage_chaines.py:56 ***************** Test titre de la page 5 - OK ****************
+[32mINFO    [0m root:test_homePage_chaines.py:56 ***************** Test titre de la page 6 - OK ****************
+[32mINFO    [0m root:test_homePage_chaines.py:67 ***************** FIN - Test_003_homePage_content ****************

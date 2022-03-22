@@ -1,0 +1,3 @@
+[32mINFO    [0m root:test_IDenBoucle.py:99 ***************** DEBUT - Test_SOUSCRIPTION_NEW_USER ***************
+[32mINFO    [0m root:test_IDenBoucle.py:145 ***************** FIN - Test_SOUSCRIPTION_NEW_USER ***************
+[32mINFO    [0m root:test_IDenBoucle.py:146 ***************** FIN - Test_001_Login ****************

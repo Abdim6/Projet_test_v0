@@ -1,0 +1,4 @@
+
+Nous utilisons Chrome ......
+Le fichier excel contient 8 ID de connexion
+L'état d'exécution des ID :  ['pass', 'pass', 'pass', 'pass', 'pass', 'pass', 'pass']

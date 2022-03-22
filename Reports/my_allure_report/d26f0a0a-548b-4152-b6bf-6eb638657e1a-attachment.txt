@@ -1,0 +1,4 @@
+[32mINFO    [0m root:conftest.py:31 ***************** DEBUT - De la connexion ****************
+[32mINFO    [0m root:conftest.py:51 ***************** FIN - Connexion User ****************
+[32mINFO    [0m root:test_modif_profil.py:19 ***************** DEBUT - test_002_ModifierDonneesUser ****************
+[32mINFO    [0m root:test_modif_profil.py:52 ***************** FIN - test_002_ModifierDonneesUser ****************

@@ -1,0 +1,9 @@
+[32mINFO    [0m root:test_IDenBoucle.py:64 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:84 ***************** Pass OK - FAUX COMPTE ****************
+[32mINFO    [0m root:test_IDenBoucle.py:64 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:64 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:64 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:64 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:64 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:64 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:93 ***************** vérification du titre de la page d'accueil ****************

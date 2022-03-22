@@ -94,7 +94,7 @@ class Test_001_Login:
        
         
     "______-----_____"   
-    @pytest.mark.mesTests
+    @pytest.mark.skip
     def test_souscription(self, setup_SansConnexionUser):
         self.logger.info("***************** DEBUT - Test_SOUSCRIPTION_NEW_USER ***************")
         "fait appel à une fonction qui genère un email et mdp randoom pour créer un compte 6play "
