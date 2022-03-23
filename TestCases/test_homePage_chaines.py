@@ -1,6 +1,6 @@
 """
-Objectif : tester certains contenu de la page homePage de 6play - hors connexion
-Date de la dernière grosse maj : 12/03/2022
+Objectif : tester la redirection vers de la page homePage de différentes chaines - hors connexion
+Date de la dernière grosse maj : 23/03/2022
 Owner : Abdi
 """
 import pytest
@@ -25,10 +25,6 @@ class Test_003_Login:
         time.sleep(2)
 
         "Clique sur la liste des chaines puis selectionne une chaine à la suite"
-        # self.driver.find_element(By.CLASS_NAME, "sc-1ajxxj-0.sc-1c6u83a-3.iUrMAG").click()
-        # chaine = self.driver.find_elements(By.CLASS_NAME, "b8xld8-1")
-        # nb_chaine = len(chaine)
-
         self.hp = HomePage(self.driver)
         self.hp.clickBtnListeChaines()
         time.sleep(2)
@@ -52,16 +48,15 @@ class Test_003_Login:
             ####
             act_title = self.driver.title
             time.sleep(2)
+            #la vérification du titre de la page home page de la chaine se fait ICI
             assert act_title == self.tabTitles[nb], self.logger.error("***************** Test titre de la page - KO ****************")
-            self.logger.info(f"***************** Test titre de la page {nb} - OK ****************")
+            self.logger.info(f"***************** Test titre de la page {nb} - OK ****************") #le nom de la chaine sera variabiliser dans un tuple
 
             time.sleep(2)
             self.driver.back()
             if nb == nb_chaine-1 :
                 break
-            # self.driver.find_element(By.CLASS_NAME, "sc-1ajxxj-0.sc-1c6u83a-3.iUrMAG").click()
             self.hp.clickBtnListeChaines()
-            # chaines = self.driver.find_elements(By.CLASS_NAME, "b8xld8-1")
             chaines = self.hp.listeChaines()
         time.sleep(5)
         self.logger.info("***************** FIN - Test_003_homePage_content ****************")

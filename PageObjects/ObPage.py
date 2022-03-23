@@ -1,7 +1,7 @@
 """
-Objectif :
-Date dernière Maj : 
-Owner : 
+Objectif : Instentier les actions liées à la page Onboarding 
+Date de la dernière grosse maj : 23/03/2022
+Owner : Abdi
 """
 
 from selenium import webdriver

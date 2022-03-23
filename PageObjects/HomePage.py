@@ -1,9 +1,8 @@
-"Ce fichier a pour objectif de localiser les objets de la home page + la modale TCF"
-"& une classe qui permetra d'éffectuer la connexion"
-"!!! AVEC UNE CONNEXION EN BOUCLE LOCALISATION AVEC XML FONCTIONNE !!! "
-# auteur 
-# dernier date de modif
-
+"""
+Objectif : Instentier les actions liées à la page home page 
+Date de la dernière grosse maj : 23/03/2022
+Owner : Abdi
+"""
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By

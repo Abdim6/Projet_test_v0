@@ -1,4 +1,8 @@
-
+"""
+Objectif : un fichier pour customiser le fichier log
+Date de la dernière grosse maj : 23/03/2022
+Owner : Abdi
+"""
 import logging
 
 # Remove all handlers associated with the root logger object.

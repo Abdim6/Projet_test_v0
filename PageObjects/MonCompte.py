@@ -1,6 +1,8 @@
-"Ce fichier a pour objectif de localiser les objets de la page OB"
-"& une classe qui permetra d'éffectuer la connexion"
-
+"""
+Objectif : Instentier les actions liées à la page mon compte  
+Date de la dernière grosse maj : 23/03/2022
+Owner : Abdi
+"""
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By

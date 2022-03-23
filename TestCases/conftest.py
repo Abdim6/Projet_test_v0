@@ -1,5 +1,5 @@
 """
-Objectif : De rassembler tous les bout de code/step reutilisés plusieurs fois
+Objectif : Rassembler tous les bout de code/step utilisés plusieurs fois
 Dernière mise à jour importante : 10/03/2022
 Owner : Abdi
 """
@@ -14,7 +14,7 @@ import time
 from Utilities.readProperties import ReadConfig
 from Utilities.customLogger import LogGen
 
-##### Un setup qui lance le driver et charge l'application AVEC connexion + un tearndown qui kill le driver à la fin de test #####
+##### Un setup qui lance le driver et qui charge l'application AVEC connexion + un tearndown qui kill le driver à la fin de test #####
 @pytest.fixture
 def setup_AvecConnexionUser():
     baseURL = ReadConfig.getApplicationURL()
@@ -55,7 +55,7 @@ def setup_AvecConnexionUser():
     driver.quit()
 
 
-##### Un setup qui lance le driver et charge l'application + un tearndown qui kill le driver à la fin de test #####
+##### Un setup qui lance le driver et charge l'application sans connexion + un tearndown qui kill le driver à la fin de test #####
 @pytest.fixture
 def setup_SansConnexionUser():
     baseURL = ReadConfig.getApplicationURL()
@@ -76,7 +76,7 @@ def setup_SansConnexionUser():
 
     driver.quit()
 
-##### Un setup qui lance le driver + un tearndown qui kill le driver à la fin de test #####
+##### Un setup qui lance le driver seulement + un tearndown qui kill le driver à la fin de test #####
 @pytest.fixture
 def setup_3():
     driver=webdriver.Chrome()
@@ -88,6 +88,7 @@ def setup_3():
     yield driver
 
     driver.quit()
+
 ######## Un setup qui lance le driver ##########
 @pytest.fixture
 def setup_2():

@@ -1,3 +1,8 @@
+"""
+Objectif : Recupération des données dans le fichier config.ini
+Date de la dernière grosse maj : 23/03/2022
+Owner : Abdi
+"""
 import configparser
 
 config = configparser.RawConfigParser()

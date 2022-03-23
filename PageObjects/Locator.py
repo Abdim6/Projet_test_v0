@@ -1,3 +1,8 @@
+"""
+Objectif : Liste tous les objets de l'application pour les localiser dans les différentes pages
+Date de la dernière grosse maj : 23/03/2022
+Owner : Abdi
+"""
 from selenium.webdriver.common.by import By
 
 class Locators():

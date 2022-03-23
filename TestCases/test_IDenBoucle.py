@@ -1,11 +1,9 @@
-"Ici est un cdt de connexion - lié aux objets de la page loginPage."
-"PROBLEME RENCONTRE AVEC UNE BOUCLE DE DONNEES - SOIT PROB DE CLIC SUR LE BOUTON SE CONNECTER SOIT SUR LE LANCER DU DRIVER"
-"EXECUTION EN BOUCLE DES id SUR §PLAY DEPUIS UN FICHIER EXCEL OK - 64SEC D'EXÉCUTION"
-"!!!!! Pense à factoriser encore, url et TCF peuvent être dans conftest"
-"""
-Objectif :
-Date de la dernière grosse maj :
 
+"""
+Objectif : Step 1 : Faire un test de connexion des différents compte en boucle - Recupération des ID depuis un fichier excel
+           Step 2 : Créer un nouveau compte et l'ajouter dans le fichier excel 
+Dernière mise à jour importante : 23/03/2022
+Owner : Abdi
 """
 import pytest
 from selenium import webdriver
@@ -23,10 +21,9 @@ class Test_001_Login:
     logger = LogGen.loggen()
     path = "./testData/LoginData.xlsx"
 
-    logger.info("***************** DEBUT - Test_001_Login ****************")
-    logger.info("***************** vérification du titre de la page d'accueil ****************")
-
     def test_homePageTitle(self,setup_SansConnexionUser):
+        self.logger.info("***************** DEBUT - Test_001_Login ****************")
+        self.logger.info("***************** DEBUT - Test_Connexion_différents_compte ***************")
         self.driver = setup_SansConnexionUser
         self.hp=HomePage(self.driver)
 
@@ -90,11 +87,10 @@ class Test_001_Login:
         #vérification de l'état de l'exacution des différents ID
         assert "fail" not in lst_status, "ERREUR"
         time.sleep(2)
-        self.logger.info("***************** vérification du titre de la page d'accueil ****************")
+        self.logger.info("***************** FIN - Test_Connexion_différents_compte ***************")
        
         
     "______-----_____"   
-    @pytest.mark.skip
     def test_souscription(self, setup_SansConnexionUser):
         self.logger.info("***************** DEBUT - Test_SOUSCRIPTION_NEW_USER ***************")
         "fait appel à une fonction qui genère un email et mdp randoom pour créer un compte 6play "

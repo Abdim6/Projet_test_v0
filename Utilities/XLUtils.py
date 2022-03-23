@@ -1,3 +1,8 @@
+"""
+Objectif : Une classe pour Accéder aux données dans le fichier excel (Lecture & écriture)
+Date de la dernière grosse maj : 23/03/2022
+Owner : Abdi
+"""
 import openpyxl
 
 def getRowCount(file, sheetName):

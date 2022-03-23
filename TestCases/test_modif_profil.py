@@ -1,6 +1,8 @@
-"Ici est un cdt de connexion - lié aux objets de la page loginPage."
-"Trouve une solution pour un time out auto de 1sec automatique"
-
+"""
+Objectif : Vérifier la modification des données mon compte + Ajout dans le favoris d'un programme 
+Dernière mise à jour importante : 23/03/2022
+Owner : Abdi
+"""
 import pytest
 from selenium import webdriver
 from PageObjects.ObPage import LoginmaPage
@@ -14,15 +16,12 @@ from Utilities.customLogger import LogGen
 class Test_002_ModifierDonneesUser:
     logger = LogGen.loggen()
 
-    @pytest.mark.mesTests
     def test_homePageTitle(self,setup_AvecConnexionUser):
         self.logger.info("***************** DEBUT - test_002_ModifierDonneesUser ****************")
         self.driver = setup_AvecConnexionUser
 
         "Modifier les données de User"
         self.hp=HomePage(self.driver)
-        # time.sleep(2)
-        # self.hp.clickMonCompteBtn() 
         time.sleep(2)
         self.mn = MonCompte(self.driver)
         self.mn.clickgenerInfo()
