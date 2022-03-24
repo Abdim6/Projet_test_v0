@@ -1,0 +1,3 @@
+[32mINFO    [0m root:test_homePage_chaines.py:23 ***************** DEBUT - Test_003_Login ****************
+[32mINFO    [0m root:test_homePage_chaines.py:53 ***************** Test titre de la page 0 - OK ****************
+[32mINFO    [0m root:test_homePage_chaines.py:53 ***************** Test titre de la page 1 - OK ****************
