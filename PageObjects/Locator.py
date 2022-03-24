@@ -27,30 +27,30 @@ class Locators():
     AjoutFavoris_btn_Xpath = (By.XPATH,'//*[@id="page_6230ac5c387d43.50469081--6a469067-d4c3-4e3f-a32f-46167d79122d"]/div[2]/div[2]/div[1]/button')
 
     #--- Page Mon Compte ---
-    btn_gererInfos_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > div.gvmwfe-0.o6a45d-0.kfijhj > a"
-    btn_modifier_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > div > div.gvmwfe-0.o6a45d-0.kfijhj > button"
-    textbox_firstname_id = "firstName"
-    textbox_lastname_id = "lastName"
-    btn_valider_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > form > div.gvmwfe-0.o6a45d-0.kfijhj > button.sc-1esye45-2.bTcnKU.o6a45d-1.hCltVO.is-primary"
-    btn_deconnexion_CSS = "#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > aside > button > span"
-    btn_deconnexion_Xpath = '/html/body/div[2]/div/div[2]/div[2]/div/main/aside/button'
+    btn_gererInfos_CSS = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > div.gvmwfe-0.o6a45d-0.kfijhj > a")
+    btn_modifier_CSS = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > div > div.gvmwfe-0.o6a45d-0.kfijhj > button")
+    textbox_firstname_id = (By.ID,"firstName")
+    textbox_lastname_id = (By.ID,"lastName")
+    btn_valider_CSS = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > form > div.gvmwfe-0.o6a45d-0.kfijhj > button.sc-1esye45-2.bTcnKU.o6a45d-1.hCltVO.is-primary")
+    btn_deconnexion_CSS = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > aside > button > span")
+    btn_deconnexion_Xpath = (By.XPATH,'/html/body/div[2]/div/div[2]/div[2]/div/main/aside/button')
     #--- Page Recherche ---
-    dernierReplay_CSS = "#page_62209fc7e252e0\.25802620--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8 > div.sc-1jzygab-5.fNJpJi > ul > li:nth-child(1)"
-    listReplay_CSS ="#page_62232bab6c0893\.70856363--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8 > div.sc-1jzygab-5.fNJpJi > ul"
-    section_replay_class = "sc-1jzygab-5"
-    dernierReplay_XPATH = '//*[@id="page_622321a29b68f1.45716632--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8"]/div[1]/ul/li[1]/a/article'
-    liste_dernierReplay_Class = "sc-1jzygab-7"
+    dernierReplay_CSS = (By.CSS_SELECTOR,"#page_62209fc7e252e0\.25802620--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8 > div.sc-1jzygab-5.fNJpJi > ul > li:nth-child(1)")
+    listReplay_CSS = (By.CSS_SELECTOR,"#page_62232bab6c0893\.70856363--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8 > div.sc-1jzygab-5.fNJpJi > ul")
+    section_replay_class = (By.CLASS_NAME,"sc-1jzygab-5")
+    dernierReplay_XPATH = (By.XPATH,'//*[@id="page_622321a29b68f1.45716632--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8"]/div[1]/ul/li[1]/a/article')
+    liste_dernierReplay_Class = (By.CLASS_NAME,"sc-1jzygab-7")
 
     #--- Page Onboarding ---
-    textbox_username_id = "email"
-    textbox_password_id = "password"
+    textbox_username_id = (By.ID,"email")
+    textbox_password_id = (By.ID,"password")
 
     # button_login_CSS_Selector = 'body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > form > button > span > span > span'
-    button_login_xml = "/html/body/div[3]/div/div/div/div/div[2]/form/button"
-    button_inscription = "body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a"
-    email_inscription ="email"
-    pwd_inscription ="password"
-    button_inscrire_new = "body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div.sc-1skm6pc-0.kosLNi.kqtu9n-2.hsHvHs > form > div.sc-1skm6pc-1.dkVizr > button"
-    liste_genre = "gender"
-    section_age = "birthdate"
-    button_terminer = "body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div > form > div.sc-1skm6pc-1.dkVizr > button"
+    button_login_xml = (By.XPATH,"/html/body/div[3]/div/div/div/div/div[2]/form/button")
+    button_inscription = (By.CLASS_NAME,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a")
+    email_inscription =(By.ID,"email")
+    pwd_inscription =(By.ID,"password")
+    button_inscrire_new = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div.sc-1skm6pc-0.kosLNi.kqtu9n-2.hsHvHs > form > div.sc-1skm6pc-1.dkVizr > button")
+    liste_genre = (By.ID,"gender")
+    section_age = (By.ID,"birthdate")
+    button_terminer = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div > form > div.sc-1skm6pc-1.dkVizr > button")
