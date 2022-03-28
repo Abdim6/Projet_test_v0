@@ -32,7 +32,7 @@ class LoginmaPage:
         
     def clickLogin(self):
         # self.driver.find_element(Locators.button_login_xml).click()
-        self.obj.action_OnElem.click(Locators.button_login_xml)
+        self.obj.click(Locators.button_login_xml)
 
     def clickInscription(self):
         # self.driver.find_element(Locators.button_inscription_new).click()
