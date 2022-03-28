@@ -34,7 +34,9 @@ class HomePage:
         self.driver.find_element(Locators.HomeBtn_CSS).click()
 
     def clickBtnListeChaines(self):
-        self.driver.find_element(Locators.btnListe_chaines_Class).click()
+        # self.driver.find_element(Locators.btnListe_chaines_Class).click()
+        element = self.wait.until(EC.element_to_be_clickable((Locators.btnListe_chaines_Class)))
+        element.click()
     
     def listeChaines(self):
         return self.driver.find_elements(Locators.liste_chaines_class)

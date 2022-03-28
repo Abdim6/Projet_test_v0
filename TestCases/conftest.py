@@ -19,6 +19,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 
 
 ##### Un setup qui lance le driver et qui charge l'application AVEC connexion + un tearndown qui kill le driver à la fin de test #####
@@ -148,9 +149,7 @@ def pytest_metadata(metadata):
 def pytest_html_report_title(report):
     report.title = "My very own title!"
 
-class Action_onElem():
-    """This class is the parent class for all the pages in our application."""
-    """It contains all common elements and functionalities available to all pages."""
+class action_OnElem():
 
     # this function is called every time a new object of the base class is created.
     def __init__(self, driver):
@@ -184,3 +183,8 @@ class Action_onElem():
     def hover_to(self, by_locator):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         ActionChains(self.driver).move_to_element(element).perform()
+
+    def select_InList(self,by_locator,index):
+        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        drp = Select(element)
+        drp.select_by_index(index)

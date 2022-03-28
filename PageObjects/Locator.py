@@ -48,6 +48,7 @@ class Locators():
     # button_login_CSS_Selector = 'body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > form > button > span > span > span'
     button_login_xml = (By.XPATH,"/html/body/div[3]/div/div/div/div/div[2]/form/button")
     button_inscription = (By.CLASS_NAME,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a")
+    button_inscription_new = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a")
     email_inscription =(By.ID,"email")
     pwd_inscription =(By.ID,"password")
     button_inscrire_new = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div.sc-1skm6pc-0.kosLNi.kqtu9n-2.hsHvHs > form > div.sc-1skm6pc-1.dkVizr > button")
