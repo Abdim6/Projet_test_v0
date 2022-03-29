@@ -8,12 +8,12 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from PageObjects.Locator import Locators
-from TestCases.conftest2 import action_OnElem
+from PageObjects.common_Actions import common_Actions
 
 class MonCompte:
     def __init__(self, driver):
         # self.driver = driver
-        self.obj = action_OnElem(driver)
+        self.obj = common_Actions(driver)
     
     def clickgenerInfo(self):
         # self.driver.find_element(Locators.btn_gererInfos_CSS).click()

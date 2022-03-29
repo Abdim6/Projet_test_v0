@@ -11,14 +11,13 @@ from selenium.webdriver.support.ui import Select
 from PageObjects.Locator import Locators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from TestCases.conftest2 import action_OnElem
+from PageObjects.common_Actions import common_Actions
 
 class LoginmaPage:
     def __init__(self, driver):
         # self.driver = driver
         # self.wait = WebDriverWait(driver,30)
-        self.obj = action_OnElem(driver)
-    
+        self.obj = common_Actions(driver)
     
     def setUsername(self, username):
         # self.driver.find_element(Locators.textbox_username_id).clear

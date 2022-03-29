@@ -11,14 +11,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
 from PageObjects.Locator import Locators
 import time
-from TestCases.conftest2 import action_OnElem
+from PageObjects.common_Actions import common_Actions
 
 class HomePage:
     
     def __init__(self, driver):
         # self.driver = driver 
         # self.wait = WebDriverWait(driver,30)
-        self.obj = action_OnElem(driver)
+        self.obj = common_Actions(driver)
         
     "Pour cette fonction j'utilise un explicite wait"
     def clickaccepterTCF(self):
@@ -47,7 +47,9 @@ class HomePage:
     
     def listeChaines(self):
         # return self.driver.find_elements(Locators.liste_chaines_class)
-        self.obj.get_nb_list_element(Locators.liste_chaines_class)
+        # return self.obj.get_nb_list_element(Locators.liste_chaines_class)
+        return self.obj.get_nb_list_element()
+       
 
     def checkObjetHomePage(self):
         # self.driver.find_element(Locators.objetHomePage_CSS).is_displayed()
@@ -82,6 +84,5 @@ class HomePage:
     def clickAjoutFavoris(self):
         # btn_ajouter = self.driver.find_elements(Locators.AjoutFavoris_btn_Class_2)
         # btn_ajouter[1].click()
-        self.obj.click(Locators.AjoutFavoris_btn_Class_2)
-        
-    
+        self.obj.click(Locators.AjoutFavoris_btn_Class_3)
+        "Faut que trouve une solution pour cliquer un element dans une liste d'elements ..."
