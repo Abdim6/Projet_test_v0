@@ -47,10 +47,10 @@ class HomePage:
     
     def listeChaines(self):
         # return self.driver.find_elements(Locators.liste_chaines_class)
-        # return self.obj.get_nb_list_element(Locators.liste_chaines_class)
-        return self.obj.get_nb_list_element()
+        "returne la liste de tous les elements de la liste chaine - "
+        "cette action m'a donné un file à retordre, review et a ANALYSER"
+        return self.obj.get_list_elements(Locators.liste_chaines_class)
        
-
     def checkObjetHomePage(self):
         # self.driver.find_element(Locators.objetHomePage_CSS).is_displayed()
         self.obj.is_visible(Locators.objetHomePage_CSS)
