@@ -25,8 +25,6 @@ class Locators():
     AjoutFavoris_btn_Class = (By.CLASS_NAME,"oxwymj-0.jtrbaw.sc-1qpa8kx-4.eOyIfE.is-secondary.is-responsive")
     AjoutFavoris_btn_Class_2 = (By.CLASS_NAME,"f1uzip-0.hUbPBT")
     AjoutFavoris_btn_Xpath = (By.XPATH,'//*[@id="page_6230ac5c387d43.50469081--6a469067-d4c3-4e3f-a32f-46167d79122d"]/div[2]/div[2]/div[1]/button')
-    AjoutFavoris_btn_CSS_2 = (By.CSS_SELECTOR, "#page_62427a917a84a2\.69363779--351033ba-209c-4ed1-af67-fe1e8a56d637 > div.qd8avx-0.jwKxkB > div.nei5bm-2.cNRBFu > div.nei5bm-9.fEDJNC > button > div")
-    AjoutFavoris_btn_Class_3 = (By.CLASS_NAME, "oxwymj-0.jtrbaw.f1uzip-4")
 
     #--- Page Mon Compte ---
     btn_gererInfos_CSS = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > div.gvmwfe-0.o6a45d-0.kfijhj > a")
@@ -50,7 +48,6 @@ class Locators():
     # button_login_CSS_Selector = 'body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > form > button > span > span > span'
     button_login_xml = (By.XPATH,"/html/body/div[3]/div/div/div/div/div[2]/form/button")
     button_inscription = (By.CLASS_NAME,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a")
-    button_inscription_new = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a")
     email_inscription =(By.ID,"email")
     pwd_inscription =(By.ID,"password")
     button_inscrire_new = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div.sc-1skm6pc-0.kosLNi.kqtu9n-2.hsHvHs > form > div.sc-1skm6pc-1.dkVizr > button")

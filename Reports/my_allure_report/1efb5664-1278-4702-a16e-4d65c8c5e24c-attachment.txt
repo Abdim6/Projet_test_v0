@@ -1,0 +1,7 @@
+[32mINFO    [0m root:test_IDenBoucle.py:25 ***************** DEBUT - Test_001_Login ****************
+[32mINFO    [0m root:test_IDenBoucle.py:26 ***************** DEBUT - Test_Connexion_différents_compte ***************
+[32mINFO    [0m root:test_IDenBoucle.py:61 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:81 ***************** Pass OK - FAUX COMPTE ****************
+[32mINFO    [0m root:test_IDenBoucle.py:61 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:61 ***************** Pass OK ****************
+[32mINFO    [0m root:test_IDenBoucle.py:90 ***************** FIN - Test_Connexion_différents_compte ***************

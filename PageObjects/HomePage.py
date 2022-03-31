@@ -11,69 +11,78 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
 from PageObjects.Locator import Locators
 import time
+from PageObjects.common_Actions import common_Actions
 
 class HomePage:
     
     def __init__(self, driver):
-        self.driver = driver 
-        self.wait = WebDriverWait(driver,30)
+        # self.driver = driver 
+        # self.wait = WebDriverWait(driver,30)
+        self.obj = common_Actions(driver)
         
     "Pour cette fonction j'utilise un explicite wait"
     def clickaccepterTCF(self):
-        element = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, Locators.accepter_btnTCF_CSS)))
-        # self.driver.find_element(By.CSS_SELECTOR,self.accepter_btnTCF_CSS).click()
-        element.click()
+        # element = self.wait.until(EC.element_to_be_clickable((Locators.accepter_btnTCF_CSS)))
+        # element.click()
+        self.obj.click(Locators.accepter_btnTCF_CSS)
 
     def clickaccepterConsent(self):
-        self.driver.find_element(By.CLASS_NAME,Locators.consent_accepter_Class).click()
+        # self.driver.find_element(Locators.consent_accepter_Class).click()
+        self.obj.click(Locators.consent_accepter_Class)
 
     def clickMonCompteBtn(self):
-        # self.driver.find_element(By.XPATH,self.moncompte_btn_xml).click()
-        element = self.wait.until(EC.element_to_be_clickable((By.XPATH, Locators.moncompte_btn_xml)))
-        element.click()
+        # element = self.wait.until(EC.element_to_be_clickable((Locators.moncompte_btn_xml)))
+        # element.click()
+        self.obj.click(Locators.moncompte_btn_xml)
 
     def clickHomeBtn(self):
-        self.driver.find_element(By.CSS_SELECTOR,Locators.HomeBtn_CSS).click()
+        # self.driver.find_element(Locators.HomeBtn_CSS).click()
+        self.obj.click(Locators.HomeBtn_CSS)
 
     def clickBtnListeChaines(self):
-        self.driver.find_element(By.CLASS_NAME, Locators.btnListe_chaines_Class).click()
+        # self.driver.find_element(Locators.btnListe_chaines_Class).click()
+        # element = self.wait.until(EC.element_to_be_clickable((Locators.btnListe_chaines_Class)))
+        # element.click()
+        self.obj.click(Locators.btnListe_chaines_Class)
     
     def listeChaines(self):
-        return self.driver.find_elements(By.CLASS_NAME, Locators.liste_chaines_class)
-    
+        # return self.driver.find_elements(Locators.liste_chaines_class)
+        "returne la liste de tous les elements de la liste chaine - "
+        "cette action m'a donné un file à retordre, review et a ANALYSER"
+        return self.obj.get_list_elements(Locators.liste_chaines_class)
+       
     def checkObjetHomePage(self):
-        self.driver.find_element(By.CSS_SELECTOR,Locators.objetHomePage_CSS).is_displayed()
+        # self.driver.find_element(Locators.objetHomePage_CSS).is_displayed()
+        self.obj.is_visible(Locators.objetHomePage_CSS)
 
     def clickdeco(self):
-        # self.driver.find_element(By.CSS_SELECTOR, Locators.btn_deconnexion_CSS).click()
-        element = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, Locators.btn_deconnexion_CSS)))
-        # element = self.wait.until(EC.element_to_be_clickable((By.XPATH, Locators.btn_deconnexion_Xpath)))
-        element.click()
+        # element = self.wait.until(EC.element_to_be_clickable((Locators.btn_deconnexion_CSS)))
+        # element.click()
+        self.obj.click(Locators.btn_deconnexion_CSS)
     
     def clickMesInfos(self):
-        element = self.wait.until(EC.element_to_be_clickable((By.XPATH, Locators.mesinfo_btn_xml)))
-        element.click()
-        # self.driver.find_element(By.XPATH, Locators.mesinfo_btn_xml).click()
+        # element = self.wait.until(EC.element_to_be_clickable((Locators.mesinfo_btn_xml)))
+        # element.click()
+        self.obj.click(Locators.mesinfo_btn_xml)
 
     def getdonneesEmail(self):
-        monEmail = self.driver.find_element(By.ID, Locators.donneesperso_email)
-        # import pdb; pdb.set_trace()
-        return monEmail.get_property("value")
+        # monEmail = self.driver.find_element(Locators.donneesperso_email)
+        # return monEmail.get_property("value")
+        self.obj.get_value(Locators.donneesperso_email)
 
     def clickDernierReplay(self):
         "cette action m'a donné un file à retordre, review et a ANALYSER"
-        liste = self.driver.find_elements(By.CLASS_NAME, Locators.liste_dernierReplay_Class)
-        liste[0].click()
+        # liste = self.driver.find_elements(Locators.liste_dernierReplay_Class)
+        # liste[0].click()
+        self.obj.click(Locators.liste_dernierReplay_Class)
         
         
     def clickSurRecherche(self):
-        self.driver.find_element(By.CSS_SELECTOR, Locators.recherche_btn_CSS).click()
+        # self.driver.find_element(Locators.recherche_btn_CSS).click()
+        self.obj.click(Locators.recherche_btn_CSS)
      
     def clickAjoutFavoris(self):
-        # import pdb; pdb.set_trace()
-        btn_ajouter = self.driver.find_elements(By.CLASS_NAME, Locators.AjoutFavoris_btn_Class_2)
-        btn_ajouter[1].click()
-        # self.driver.find_element(By.CSS_SELECTOR, self.AjoutFavoris_btn_CSS).click()
-        # self.driver.find_element(By.XPATH,Locators.AjoutFavoris_btn_Xpath).click()
-        
-    
+        # btn_ajouter = self.driver.find_elements(Locators.AjoutFavoris_btn_Class_2)
+        # btn_ajouter[1].click()
+        self.obj.click(Locators.AjoutFavoris_btn_Class_3)
+        "Faut que trouve une solution pour cliquer un element dans une liste d'elements ..."

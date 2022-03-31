@@ -3,6 +3,7 @@ Objectif : tester la redirection vers de la page homePage de différentes chaine
 Date de la dernière grosse maj : 23/03/2022
 Owner : Abdi
 """
+import pdb
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -30,7 +31,7 @@ class Test_003_Login:
         time.sleep(2)
         chaines = self.hp.listeChaines()
         nb_chaine = len(chaines)
-
+        
         print("Le nb de chaine est :",nb_chaine)
         self.tabTitles = [ReadTitlePage.getTitleM6(), ReadTitlePage.getTitleW9(), 
                           ReadTitlePage.getTitle6ter(),ReadTitlePage.getTitleguilli(), 
