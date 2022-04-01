@@ -27,10 +27,12 @@ class common_Actions():
     # this function is called every time a new object of the base class is created.
     def __init__(self, driver):
         self.driver=driver
+        self.wait = WebDriverWait(self.driver, 10)
 
     # this function performs click on web element whose locator is passed to it.
     def click(self, by_locator):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+        # WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+        self.wait.until(EC.visibility_of_element_located(by_locator)).click()
         
 ####A retravailler####
      # this function performs click on web element whose locator is passed to it. 

@@ -27,6 +27,7 @@ from selenium.webdriver.support.ui import Select
 def setup_AvecConnexionUser():
     baseURL = ReadConfig.getApplicationURL()
     driver=webdriver.Chrome()
+    
     print("")
     print("Nous utilisons Chrome ......")
     # driver.implicitly_wait(3)
@@ -59,7 +60,6 @@ def setup_AvecConnexionUser():
     logger.info("***************** FIN - Connexion User ****************")
 
     yield driver
-
     driver.quit()
 
 
