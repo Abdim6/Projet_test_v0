@@ -4,7 +4,7 @@ Dernière mise à jour importante : 10/03/2022
 Owner : Abdi
 """
 ###########  "Attention faut utiliser des fonction à la place de la classe" ############
-##########   "Commentaire à traduire" ############
+##########   "Traduire tous les Commentaires" ############
 from random import random
 from xml.dom.minidom import Element
 import pytest
@@ -17,7 +17,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-
 
 class common_Actions():
 
