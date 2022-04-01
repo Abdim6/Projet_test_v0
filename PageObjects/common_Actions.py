@@ -3,14 +3,11 @@ Objectif : Rassembler tous les bout de code/step utilisés plusieurs fois
 Dernière mise à jour importante : 10/03/2022
 Owner : Abdi
 """
-
+###########  "Attention faut utiliser des fonction à la place de la classe" ############
+##########   "Commentaire à traduire" ############
 from random import random
 from xml.dom.minidom import Element
 import pytest
-# import string
-# from PageObjects.HomePage import HomePage
-# from Utilities.readProperties import ReadConfig
-# from Utilities.customLogger import LogGen
 
 import time
 from selenium import webdriver
@@ -31,16 +28,13 @@ class common_Actions():
 
     # this function performs click on web element whose locator is passed to it.
     def click(self, by_locator):
-        # WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
         self.wait.until(EC.visibility_of_element_located(by_locator)).click()
         
 ####A retravailler####
      # this function performs click on web element whose locator is passed to it. 
     def click_one_ofElements(self, by_locator):
-        # elements = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
-        # elements[index].click()
         return self.driver.find_elements(by_locator)
-        # elements[index].click()
+        
     
     # this function asserts comparison of a web element's text with passed in text.
     def assert_element_text(self, by_locator, element_text):
@@ -79,10 +73,3 @@ class common_Actions():
     "cette fonction retourne la liste de tous elements"
     def get_list_elements(self,by_locator):
         return self.wait.until(EC.visibility_of_all_elements_located(by_locator))
-        # self.driver.find_element(by_locator)
-        # import pdb; pdb.set_trace()
-        # self.driver.find_elements(By.CLASS_NAME,"b8xld8-1")
-
-
-
-        "Attention faut utiliser des fonction à la place de la classe"
