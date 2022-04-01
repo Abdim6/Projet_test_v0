@@ -2,4 +2,4 @@
 Reports/
 Logs/
 Screenshot/
-!/.gitignore
+__pycache__/
