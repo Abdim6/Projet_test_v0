@@ -13,7 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from PageObjects.common_Actions import common_Actions
 
-class LoginmaPage:
+class Page_OB_Connexion:
     def __init__(self, driver):
         self.Action = common_Actions(driver)
     

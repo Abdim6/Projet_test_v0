@@ -7,7 +7,7 @@ Owner : Abdi
 from random import random
 import pytest
 # import string
-from PageObjects.ObPage import LoginmaPage
+from PageObjects.ObPage import Page_OB_Connexion
 from PageObjects.HomePage import HomePage
 from Utilities.readProperties import ReadConfig
 from Utilities.customLogger import LogGen
@@ -49,7 +49,7 @@ def setup_AvecConnexionUser():
     time.sleep(2)
 
     "Saisi des ID dans OB"
-    lp=LoginmaPage(driver) 
+    lp=Page_OB_Connexion(driver) 
     lp.setUsername(username)
     time.sleep(1)
     lp.setPassword(password)
