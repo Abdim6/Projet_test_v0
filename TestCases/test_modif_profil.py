@@ -7,7 +7,7 @@ import pytest
 from selenium import webdriver
 from PageObjects.ObPage import LoginmaPage
 from PageObjects.HomePage import HomePage
-from PageObjects.Divers.MonCompte import MonCompte
+from PageObjects.MonCompte import MonCompte
 import time
 from TestCases.conftest import setup_AvecConnexionUser
 from Utilities.readProperties import ReadConfig
