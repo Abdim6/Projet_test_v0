@@ -5,7 +5,7 @@ Objectif : Step 1 : Faire un test de connexion des différents compte en boucle 
 Dernière mise à jour importante : 23/03/2022
 Owner : Abdi
 """
-# import pytest
+import pytest
 from selenium import webdriver
 from PageObjects.ObPage import Page_OB_Connexion
 from PageObjects.HomePage import HomePage
@@ -21,16 +21,16 @@ class Test_001_Connexion:
     logger = LogGen.loggen()
     path = "./testData/LoginData.xlsx"
 
-    def Test_Connexion_différents_compte(self,setup_SansConnexionUser):
-        self.logger.info("***************** DEBUT - Test_001_Login ****************")
-        self.logger.info("***************** DEBUT - Test_Connexion_différents_compte ***************")
+    def test_Connexion_PlusieursID_EnBoucle(self,setup_SansConnexionUser):
+        self.logger.info("***************** DEBUT - Test_001_Connexion ****************")
+        self.logger.info("***************** DEBUT - test_Connexion_PlusieursID_EnBoucle ***************")
         self.driver = setup_SansConnexionUser
         self.hp=HomePage(self.driver)
 
         self.nbLigne = XLUtils.getRowCount(self.path, "Feuil1")
         print(f"Le fichier excel contient {self.nbLigne} ID de connexion")
 
-        lst_status = [] #Un tab qui stock les statut de pass ou de fail de différentes connexions des ID 
+        lst_status = [] #Un tab qui stock les statut de pass ou de fail de différents connexions des ID 
 
         for nb in range(2, self.nbLigne+1):
             self.username = XLUtils.readData(self.path,"Feuil1",nb,3)
@@ -87,10 +87,8 @@ class Test_001_Connexion:
         #vérification de l'état de l'exacution des différents ID
         assert "fail" not in lst_status, "ERREUR"
         time.sleep(2)
-        self.logger.info("***************** FIN - Test_Connexion_différents_compte ***************")
+        self.logger.info("***************** FIN - test_Connexion_PlusieursID_EnBoucle ***************")
        
-        
-    "______-----_____"   
     def Test_Souscription_NEW_USER(self, setup_SansConnexionUser):
         self.logger.info("***************** DEBUT - Test_SOUSCRIPTION_NEW_USER ***************")
         "fait appel à une fonction qui genère un email et mdp randoom pour créer un compte 6play "
@@ -124,7 +122,7 @@ class Test_001_Connexion:
         time.sleep(1)
         self.lp.ClickTerminer()
        
-        "Une fois que la souscription est terminée, j'ajoute les ID dans le fichier"
+        "Une fois que la souscription est terminée, j'ajoute les ID dans le fichier excel"
         nbLigne = XLUtils.getRowCount("./testData/LoginData.xlsx", "Feuil1")
         XLUtils.writeData(self.path,"Feuil1",nbLigne+1,3,self.rand_mail)
         XLUtils.writeData(self.path,"Feuil1",nbLigne+1,4,self.rand_pwd)
@@ -139,4 +137,4 @@ class Test_001_Connexion:
             assert True
         time.sleep(2)
         self.logger.info("***************** FIN - Test_SOUSCRIPTION_NEW_USER ***************")
-        self.logger.info("***************** FIN - Test_001_Login ****************")
+        self.logger.info("***************** FIN - Test_001_Connexion ****************")
