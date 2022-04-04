@@ -1,5 +1,5 @@
 """
-Objectif : Recupération des données dans le fichier config.ini
+Objectif : Recupérer des données dans le fichier config.ini
 Date de la dernière grosse maj : 23/03/2022
 Owner : Abdi
 """
