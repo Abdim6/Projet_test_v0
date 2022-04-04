@@ -18,6 +18,18 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
+# Un exemple de fonction qui permet de cliquer sur un object d'une page
+# Pour info les paramètres :
+   # driver : le driver serait celui appellé dans les différentes classes de POM 
+   # locator : est l'adresse de l'object utilisé
+def click(driver, locator):
+  WebDriverWait(driver, 10).until(EC.visibility_of_element_located(locator)).click()
+"""
+La fonction ci dessus me pose des problemes :
+  - Impossible à factoriser "WebDriverWait(driver, 10)" par qu'il y'a le driver qu'il faudra gérer
+  - Une solution serait de ne pas factoriser mais ça serait compliquer à maintenir
+"""
+
 class common_Actions():
 
     # this function is called every time a new object of the base class is created.
