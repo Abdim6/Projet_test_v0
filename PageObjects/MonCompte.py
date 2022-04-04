@@ -12,20 +12,20 @@ from PageObjects.common_Actions import common_Actions
 
 class MonCompte:
     def __init__(self, driver):
-        self.obj = common_Actions(driver)
+        self.Action = common_Actions(driver)
     
     def clickgenerInfo(self):
-        self.obj.click(Locators.btn_gererInfos_CSS)
+        self.Action.click(Locators.btn_gererInfos_CSS)
 
     def clickModifier(self):
-        self.obj.click(Locators.btn_modifier_CSS)
+        self.Action.click(Locators.btn_modifier_CSS)
 
     def setPrenom(self, prenom):
-        self.obj.enter_text(Locators.textbox_firstname_id,prenom)
+        self.Action.enter_text(Locators.textbox_firstname_id,prenom)
 
     def setNom(self, nom):
-        self.obj.enter_text(Locators.textbox_lastname_id,nom)
+        self.Action.enter_text(Locators.textbox_lastname_id,nom)
 
     def clickValider(self):
-        self.obj.click(Locators.btn_valider_CSS)
+        self.Action.click(Locators.btn_valider_CSS)
   
