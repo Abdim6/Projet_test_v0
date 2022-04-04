@@ -65,9 +65,10 @@ class common_Actions():
         drp = Select(element)
         drp.select_by_index(index)
 
-    def get_value(self,by_locator):
+    #this function return a property of an element value
+    def get_property(self,by_locator, type_property):
         element = self.wait.until(EC.visibility_of_element_located(by_locator))
-        return element.get_property("value")
+        return element.get_property(type_property)
 
     "cette fonction retourne la liste de tous elements"
     def get_list_elements(self,by_locator):

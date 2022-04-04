@@ -18,7 +18,6 @@ class HomePage:
     def __init__(self, driver):
         self.obj = common_Actions(driver)
         
-    "Pour cette fonction j'utilise un explicite wait"
     def clickaccepterTCF(self):
         self.obj.click(Locators.accepter_btnTCF_CSS)
 
@@ -49,7 +48,8 @@ class HomePage:
         self.obj.click(Locators.mesinfo_btn_xml)
 
     def getdonneesEmail(self):
-        self.obj.get_value(Locators.donneesperso_email)
+        # self.obj.get_value(Locators.donneesperso_email)
+        self.obj.get_property(Locators.donneesperso_email, "value")
 
     def clickDernierReplay(self):
         "cette action m'a donné un file à retordre, review et a ANALYSER"
