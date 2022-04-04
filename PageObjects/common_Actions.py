@@ -29,11 +29,12 @@ class common_Actions():
     def click(self, by_locator):
         self.wait.until(EC.visibility_of_element_located(by_locator)).click()
         
-####A retravailler####
+        ####A retravailler####
      # this function performs click on web element whose locator is passed to it. 
-    def click_one_ofElements(self, by_locator):
-        return self.driver.find_elements(by_locator)
-        
+    def click_one_ofElements(self, by_locator,index):
+        Element = self.wait.until(EC.visibility_of_all_elements_located(by_locator))
+        Element[index].click()
+        # return self.driver.find_elements(by_locator)
     
     # this function asserts comparison of a web element's text with passed in text.
     def assert_element_text(self, by_locator, element_text):
@@ -56,9 +57,14 @@ class common_Actions():
         return bool(element)
     
     # this function moves the mouse pointer over a web element whose locator has been passed to it.
-    def hover_to(self, by_locator):
+    def hover_to_oneElement(self, by_locator):
         element = self.wait.until(EC.visibility_of_element_located(by_locator))
         ActionChains(self.driver).move_to_element(element).perform()
+
+    # this function moves the mouse pointer over a web element in list whose locator has been passed to it.
+    def hover_to_list(self, by_locator,index):
+        element = self.wait.until(EC.visibility_of_all_elements_located(by_locator))
+        ActionChains(self.driver).move_to_element(element[index]).perform()
 
     def select_InList(self,by_locator,index):
         element = self.wait.until(EC.visibility_of_element_located(by_locator))

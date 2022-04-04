@@ -37,7 +37,11 @@ class HomePage:
         "returne la liste de tous les elements de la liste chaine - "
         "cette action m'a donné un file à retordre, review et a ANALYSER"
         return self.Action.get_list_elements(Locators.liste_chaines_class)
-       
+
+    def clickChaineBtn(self, index):
+        self.Action.hover_to_list(Locators.liste_chaines_class,index)
+        self.Action.click_one_ofElements(Locators.liste_chaines_class, index)
+
     def checkObjetHomePage(self):
         self.Action.is_visible(Locators.objetHomePage_CSS)
 
