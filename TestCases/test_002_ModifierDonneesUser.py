@@ -3,15 +3,11 @@ Objectif : Vérifier la modification des données mon compte + Ajout dans le fav
 Dernière mise à jour importante : 23/03/2022
 Owner : Abdi
 """
-# import pytest
-from selenium import webdriver
-# from PageObjects.ObPage import Page_OB_Connexion
 from PageObjects.HomePage import HomePage
 from PageObjects.MonCompte import MonCompte
-# from TestCases.conftest import setup_AvecConnexionUser
-# from Utilities.readProperties import ReadConfig
 from Utilities.customLogger import LogGen
 import time
+
 
 class Test_002_ModifierDonneesUser:
     logger = LogGen.loggen()

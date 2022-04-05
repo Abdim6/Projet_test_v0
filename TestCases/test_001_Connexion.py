@@ -5,17 +5,13 @@ Objectif : Step 1 : Faire un test de connexion des différents compte en boucle 
 Dernière mise à jour importante : 23/03/2022
 Owner : Abdi
 """
-import pytest
-from selenium import webdriver
 from PageObjects.ObPage import Page_OB_Connexion
 from PageObjects.HomePage import HomePage
-import time
-from Utilities.readProperties import ReadConfig
 from Utilities.customLogger import LogGen
 from Utilities import XLUtils
 import string
 import random 
-from selenium.webdriver.support.ui import WebDriverWait
+import time
 
 class Test_001_Connexion:
     logger = LogGen.loggen()

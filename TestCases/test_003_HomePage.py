@@ -3,17 +3,10 @@ Objectif : tester la redirection vers de la page homePage de différentes chaine
 Date de la dernière grosse maj : 23/03/2022
 Owner : Abdi
 """
-import pdb
-# import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-# from PageObjects.ObPage import LoginmaPage
 from PageObjects.HomePage import HomePage
-import time
-# from TestCases.conftest import setup_SansConnexionUser
 from Utilities.readProperties import ReadTitlePage
 from Utilities.customLogger import LogGen
-from selenium.webdriver.common.action_chains import ActionChains
+import time
 
 
 # Ce scénario vérifie si les home pages de différentes chaines se sont bien affichées
@@ -53,6 +46,7 @@ class Test_003_HomePage:
             time.sleep(2)
             #la vérification du titre de la page home page de la chaine se fait ICI
             assert act_title == self.tabTitles[nb], self.logger.error("***************** Test titre de la page - KO ****************")
+            
             self.logger.info(f"***************** Test titre de la page {nb} - OK ****************") 
             # le nom de la chaine sera variabiliser dans un tuple 
             # "L'idée serait de renvoyer deux valeurs dans le readpropreties, le titre et le nom de la chaine et puis le recupérer dans le LOg le nom de la chaine"
