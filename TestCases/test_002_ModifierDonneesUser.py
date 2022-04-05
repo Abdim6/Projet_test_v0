@@ -3,21 +3,21 @@ Objectif : Vérifier la modification des données mon compte + Ajout dans le fav
 Dernière mise à jour importante : 23/03/2022
 Owner : Abdi
 """
-import pytest
+# import pytest
 from selenium import webdriver
-from PageObjects.ObPage import LoginmaPage
+# from PageObjects.ObPage import Page_OB_Connexion
 from PageObjects.HomePage import HomePage
 from PageObjects.MonCompte import MonCompte
-import time
-from TestCases.conftest import setup_AvecConnexionUser
-from Utilities.readProperties import ReadConfig
+# from TestCases.conftest import setup_AvecConnexionUser
+# from Utilities.readProperties import ReadConfig
 from Utilities.customLogger import LogGen
+import time
 
 class Test_002_ModifierDonneesUser:
     logger = LogGen.loggen()
 
     def test_homePageTitle(self,setup_AvecConnexionUser):
-        self.logger.info("***************** DEBUT - test_002_ModifierDonneesUser ****************")
+        self.logger.info("***************** DEBUT - Test_002_ModifierDonneesUser ****************")
         self.driver = setup_AvecConnexionUser
 
         "Modifier les données de User"
@@ -28,7 +28,15 @@ class Test_002_ModifierDonneesUser:
         time.sleep(1)
         self.mn.clickModifier()
         time.sleep(1)
-        self.mn.setPrenom("abdi")
+        var = self.mn.get_prenom()
+        var=int(var[5:])
+        prenom = "abdi_"+str(var+1)
+
+        # if var == "abdi_1":
+        #     self.mn.setPrenom("abdi")
+        # else : 
+        #     self.mn.setPrenom("abdi_1")
+        self.mn.setPrenom(prenom)
         time.sleep(1)
         self.mn.setNom("Bileh")
         time.sleep(2)
@@ -47,5 +55,4 @@ class Test_002_ModifierDonneesUser:
         time.sleep(5)    #ce time out est tres important, reflechi comment l'optimiser
         self.hp.clickdeco()
         time.sleep(3)
-
-        self.logger.info("***************** FIN - test_002_ModifierDonneesUser ****************")
+        self.logger.info("***************** FIN - Test_002_ModifierDonneesUser ****************")

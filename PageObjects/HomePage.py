@@ -64,4 +64,7 @@ class HomePage:
      
     def clickAjoutFavoris(self):
         self.Action.click(Locators.AjoutFavoris_btn_Class_3)
+        self.Action.get_property(Locators.AjoutFavoris_btn_Class_3, "aria-pressed")
         "Faut que trouve une solution pour cliquer un element dans une liste d'elements ..."
+
+       

@@ -41,6 +41,10 @@ class common_Actions():
         web_element=self.wait.until(EC.visibility_of_element_located(by_locator))
         assert web_element.text == element_text
 
+    # this function clean the value in the input
+    def clear_input(self, by_locator):
+        self.wait.until(EC.visibility_of_element_located(by_locator)).clear()
+
     # this function performs text entry of the passed in text, in a web element whose locator is passed to it.
     def enter_text(self, by_locator, text):
         return self.wait.until(EC.visibility_of_element_located(by_locator)).send_keys(text)

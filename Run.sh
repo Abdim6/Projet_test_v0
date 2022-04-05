@@ -1,9 +1,9 @@
 #!/bin/bash
-pytest --alluredir=Reports/my_allure_report /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_homePage_chaines.py 
+pytest --alluredir=Reports/my_allure_report /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_001_Connexion.py 
 sleep 3
-pytest --alluredir=Reports/my_allure_report /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_modif_profil.py 
+pytest --alluredir=Reports/my_allure_report /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_002_ModifierDonneesUser.py
 sleep 3
-pytest --alluredir=Reports/my_allure_report /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_IDenBoucle.py
+pytest --alluredir=Reports/my_allure_report /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_003_HomePage.py
 sleep 3
 
 #allure serve Reports/my_allure_report   
@@ -12,3 +12,5 @@ sleep 3
 # pytest --alluredir TestCases/test_modif_profil.py
 # python -m pytest --alluredir=Reports/my_allure_report /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_IDenBoucle.py
 # s
+
+
