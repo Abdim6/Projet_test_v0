@@ -118,7 +118,7 @@ class Test_001_Connexion:
         time.sleep(1)
         self.lp.clickInscrire()
         time.sleep(1)
-        self.lp.choixGenre()
+        self.lp.choixGenre(1)
         time.sleep(1)
         self.lp.setAge(self.random_date_fr)
         time.sleep(1)
@@ -141,7 +141,7 @@ class Test_001_Connexion:
         # print ("Ceci est l'email affiché : "+monEmail)
         # print ("Ceci est l'email random faux : "+self.rand_mail+"1")
         # import pdb; pdb.set_trace()
-        # time.sleep(2)
+        time.sleep(2)
         
         self.logger.info("***************** FIN - Test_SOUSCRIPTION_NEW_USER ***************")
         self.logger.info("***************** FIN - Test_001_Connexion ****************")
