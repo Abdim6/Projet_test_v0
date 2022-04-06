@@ -49,6 +49,7 @@ class common_Actions():
     def enter_text(self, by_locator, text):
         return self.wait.until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
+######ATTENTION enable et visible devrait etre different non? !!########
     # this function checks if the web element whose locator has been passed to it, is enabled or not and returns
     # web element if it is enabled.
     def is_enabled(self, by_locator):

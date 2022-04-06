@@ -9,6 +9,8 @@ from PageObjects.ObPage import Page_OB_Connexion
 from PageObjects.HomePage import HomePage
 from Utilities.customLogger import LogGen
 from Utilities import XLUtils
+from faker import Faker
+import datetime
 import string
 import random 
 import time
@@ -16,7 +18,6 @@ import time
 class Test_001_Connexion:
     logger = LogGen.loggen()
     path = "./testData/LoginData.xlsx"
-
     def test_Connexion_PlusieursID_EnBoucle(self,setup_SansConnexionUser):
         self.logger.info("***************** DEBUT - Test_001_Connexion ****************")
         self.logger.info("***************** DEBUT - test_Connexion_PlusieursID_EnBoucle ***************")
@@ -29,9 +30,9 @@ class Test_001_Connexion:
         lst_status = [] #Un tab qui stock les statut de pass ou de fail de différents connexions des ID 
 
         for nb in range(2, self.nbLigne+1):
-            self.username = XLUtils.readData(self.path,"Feuil1",nb,3)
-            self.password = XLUtils.readData(self.path,"Feuil1",nb,4)
-            self.exp = XLUtils.readData(self.path,"Feuil1",nb,5)
+            self.username = XLUtils.readData(self.path,"Feuil1",nb,4)
+            self.password = XLUtils.readData(self.path,"Feuil1",nb,5)
+            self.exp = XLUtils.readData(self.path,"Feuil1",nb,6)
             
             time.sleep(2)
             self.hp.clickMonCompteBtn() 
@@ -56,7 +57,7 @@ class Test_001_Connexion:
                 if self.exp == "pass":
                     self.logger.info("***************** Pass OK ****************")
                     self.hp.clickdeco()
-                    XLUtils.writeData(self.path,"Feuil1",nb,6,"PASS")
+                    XLUtils.writeData(self.path,"Feuil1",nb,7,"PASS")
                     time.sleep(2)
                     lst_status.append("pass")
                     # assert True
@@ -64,19 +65,19 @@ class Test_001_Connexion:
                     self.logger.error("***************** Fail KO ****************")
                     lst_status.append("fail")
                     self.driver.save_screenshot("./screenshot/page_title_0.png")
-                    XLUtils.writeData(self.path,"Feuil1",nb,6,"FAIL")
+                    XLUtils.writeData(self.path,"Feuil1",nb,7,"FAIL")
                     self.driver.refresh()
             elif act_title != exp_title:
                 if self.exp == "pass":
                     self.logger.error("***************** Fail KO ****************")
-                    XLUtils.writeData(self.path,"Feuil1",nb,6,"FAIL")
+                    XLUtils.writeData(self.path,"Feuil1",nb,7,"FAIL")
                     lst_status.append("fail")
                     self.driver.save_screenshot("./screenshot/page_title_0.png")
                     self.driver.refresh()
                 elif self.exp == "fail":                   
                     self.logger.info("***************** Pass OK - FAUX COMPTE ****************")
                     lst_status.append("pass")
-                    XLUtils.writeData(self.path,"Feuil1",nb,6,"PASS")
+                    XLUtils.writeData(self.path,"Feuil1",nb,7,"PASS")
                     self.driver.refresh()
 
         print("L'état d'exécution des ID : ",lst_status)
@@ -84,8 +85,9 @@ class Test_001_Connexion:
         assert "fail" not in lst_status, "ERREUR"
         time.sleep(2)
         self.logger.info("***************** FIN - test_Connexion_PlusieursID_EnBoucle ***************")
-       
-    def Test_Souscription_NEW_USER(self, setup_SansConnexionUser):
+
+######Refelexion PK je dois utiliser des self dans cette methode?###########
+    def test_Souscription_NEW_USER(self, setup_SansConnexionUser):
         self.logger.info("***************** DEBUT - Test_SOUSCRIPTION_NEW_USER ***************")
         "fait appel à une fonction qui genère un email et mdp randoom pour créer un compte 6play "
         "rentre ces ID dans le fichier "
@@ -96,6 +98,10 @@ class Test_001_Connexion:
         self.rand_password_lower = "".join(random.choice(letters) for i in range(5))
         self.rand_password_upper = "".join(random.choice(letters_upper) for i in range(5))
         self.rand_pwd = self.rand_password_lower+self.rand_password_upper + str(5)
+        fake = Faker()
+        random_date = fake.date_between(start_date='-50y', end_date='-16y')
+        print(random_date)
+        self.random_date_fr = datetime.datetime.strftime(random_date, '%d/%m/%Y')
 
         self.driver = setup_SansConnexionUser
         self.hp=HomePage(self.driver)
@@ -114,23 +120,30 @@ class Test_001_Connexion:
         time.sleep(1)
         self.lp.choixGenre()
         time.sleep(1)
-        self.lp.setAge("29/11/1999")
+        self.lp.setAge(self.random_date_fr)
         time.sleep(1)
         self.lp.ClickTerminer()
        
         "Une fois que la souscription est terminée, j'ajoute les ID dans le fichier excel"
         nbLigne = XLUtils.getRowCount("./testData/LoginData.xlsx", "Feuil1")
-        XLUtils.writeData(self.path,"Feuil1",nbLigne+1,3,self.rand_mail)
-        XLUtils.writeData(self.path,"Feuil1",nbLigne+1,4,self.rand_pwd)
-        XLUtils.writeData(self.path,"Feuil1",nbLigne+1,5,"pass")
+        XLUtils.writeData(self.path,"Feuil1",nbLigne+1,3,self.random_date_fr)
+        XLUtils.writeData(self.path,"Feuil1",nbLigne+1,4,self.rand_mail)
+        XLUtils.writeData(self.path,"Feuil1",nbLigne+1,5,self.rand_pwd)
+        XLUtils.writeData(self.path,"Feuil1",nbLigne+1,6,"pass")
 
         time.sleep(2)
         self.hp.clickMesInfos()
         time.sleep(2)
         monEmail = self.hp.getdonneesEmail()
-        if monEmail == self.rand_mail:
-            print("L'email récupéré correspond à celui utilisé lors de la souscription de compte")
-            assert True
-        time.sleep(2)
+        assert monEmail == self.rand_mail
+
+        # assert monEmail == self.rand_mail+"1", "L'email sur mon compte ne correspond pas à celui utilisé pour la souscription"
+        # print ("Ceci est l'email affiché : "+monEmail)
+        # print ("Ceci est l'email random faux : "+self.rand_mail+"1")
+        # import pdb; pdb.set_trace()
+        # time.sleep(2)
+        
         self.logger.info("***************** FIN - Test_SOUSCRIPTION_NEW_USER ***************")
         self.logger.info("***************** FIN - Test_001_Connexion ****************")
+
+    

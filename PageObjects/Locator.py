@@ -36,6 +36,7 @@ class Locators():
     btn_valider_CSS = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > form > div.gvmwfe-0.o6a45d-0.kfijhj > button.sc-1esye45-2.bTcnKU.o6a45d-1.hCltVO.is-primary")
     btn_deconnexion_CSS = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > aside > button > span")
     btn_deconnexion_Xpath = (By.XPATH,'/html/body/div[2]/div/div[2]/div[2]/div/main/aside/button')
+    btn_deconnexion_Class =(By.CLASS_NAME,"oxwymj-0.jtrbaw.sc-1esye45-2")
     #--- Page Recherche ---
     dernierReplay_CSS = (By.CSS_SELECTOR,"#page_62209fc7e252e0\.25802620--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8 > div.sc-1jzygab-5.fNJpJi > ul > li:nth-child(1)")
     listReplay_CSS = (By.CSS_SELECTOR,"#page_62232bab6c0893\.70856363--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8 > div.sc-1jzygab-5.fNJpJi > ul")

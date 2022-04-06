@@ -24,14 +24,9 @@ class Test_002_ModifierDonneesUser:
         time.sleep(1)
         self.mn.clickModifier()
         time.sleep(1)
-        var = self.mn.get_prenom()
-        var=int(var[5:])
-        prenom = "abdi_"+str(var+1)
-
-        # if var == "abdi_1":
-        #     self.mn.setPrenom("abdi")
-        # else : 
-        #     self.mn.setPrenom("abdi_1")
+        prenom = self.mn.get_prenom()
+        num=int(prenom[5:])
+        prenom = "abdi_"+str(num+1)
         self.mn.setPrenom(prenom)
         time.sleep(1)
         self.mn.setNom("Bileh")

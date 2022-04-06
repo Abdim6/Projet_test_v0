@@ -53,7 +53,7 @@ class HomePage:
 
     def getdonneesEmail(self):
         # self.Action.get_value(Locators.donneesperso_email)
-        self.Action.get_property(Locators.donneesperso_email, "value")
+        return self.Action.get_property(Locators.donneesperso_email, "value")
 
     def clickDernierReplay(self):
         "cette action m'a donné un file à retordre, review et a ANALYSER"
