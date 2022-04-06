@@ -98,3 +98,7 @@ class common_Actions():
         else:
             element = self.wait.until(EC.visibility_of_all_elements_located(by_locator))
             return element[index].text
+    
+    #Invisibility of element
+    def waitInvisibility(self, by_locator):
+        self.WebDriverWait(self.driver, 1000).until(EC.invisibility_of_element(by_locator))
