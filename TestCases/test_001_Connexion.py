@@ -100,7 +100,6 @@ class Test_001_Connexion:
         self.rand_pwd = self.rand_password_lower+self.rand_password_upper + str(5)
         fake = Faker()
         random_date = fake.date_between(start_date='-50y', end_date='-16y')
-        print(random_date)
         self.random_date_fr = datetime.datetime.strftime(random_date, '%d/%m/%Y')
 
         self.driver = setup_SansConnexionUser
@@ -135,7 +134,18 @@ class Test_001_Connexion:
         self.hp.clickMesInfos()
         time.sleep(2)
         monEmail = self.hp.getdonneesEmail()
+        date_naissance = self.hp.getdonneesDate()
+        genre = self.hp.getdonneesGenre()
+        print(date_naissance)
+        print(genre)
+        # import pdb; pdb.set_trace()
         assert monEmail == self.rand_mail
+### le genre, ça serait mieux soit le mettre dans le fichier .ini avec un tuple en retour (num @ le lettre coorespondant)
+### Ou le générer en random et puis pareil faire correspond avec la lettre correspondante
+### Ca serait mieux d'effectuer les asserts dirrectement sans passer par une variable intermédiaire
+
+        assert date_naissance == self.random_date_fr 
+        assert genre == "mf", "le genre n'est pas TOP"
 
         # assert monEmail == self.rand_mail+"1", "L'email sur mon compte ne correspond pas à celui utilisé pour la souscription"
         # print ("Ceci est l'email affiché : "+monEmail)

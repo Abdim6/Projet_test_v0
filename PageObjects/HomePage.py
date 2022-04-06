@@ -53,7 +53,15 @@ class HomePage:
 
     def getdonneesEmail(self):
         # self.Action.get_value(Locators.donneesperso_email)
-        return self.Action.get_property(Locators.donneesperso_email, "value")
+        return self.Action.get_property(Locators.email_Id, "value")
+
+    def getdonneesDate(self):
+        # self.Action.get_value(Locators.donneesperso_email)
+        return self.Action.get_property(Locators.date_naissance_Id, "value")
+
+    def getdonneesGenre(self):
+        # self.Action.get_value(Locators.donneesperso_email)
+        return self.Action.get_property(Locators.genre_Id, "value")
 
     def clickDernierReplay(self):
         "cette action m'a donné un file à retordre, review et a ANALYSER"

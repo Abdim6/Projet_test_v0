@@ -38,8 +38,8 @@ class Page_OB_Connexion:
     def clickInscrire(self):
         self.Action.click(Locators.button_inscrire_new)
  
-    def choixGenre(self):
-        self.Action.select_InList(Locators.liste_genre,1)
+    def choixGenre(self, choix):
+        self.Action.select_InList(Locators.liste_genre,choix)
        
     def setAge(self, age):
         self.Action.enter_text(Locators.section_age, age)
