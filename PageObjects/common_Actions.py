@@ -80,7 +80,21 @@ class common_Actions():
     def get_property(self,by_locator, type_property):
         element = self.wait.until(EC.visibility_of_element_located(by_locator))
         return element.get_property(type_property)
+    #this function return a attribute of an element value
+    def get_attribute(self,by_locator, type_property):
+        element = self.wait.until(EC.visibility_of_element_located(by_locator))
+        return element.get_attribute(type_property)
 
     "cette fonction retourne la liste de tous elements"
     def get_list_elements(self,by_locator):
         return self.wait.until(EC.visibility_of_all_elements_located(by_locator))
+
+##ici faudra separer quand l'element est parmi une liste et lorsque'il est seul####
+    #this function return the text of an element 
+    def get_text(self,by_locator,index):
+        if index==-1 : 
+            element = self.wait.until(EC.visibility_of_element_located(by_locator))
+            return element.text
+        else:
+            element = self.wait.until(EC.visibility_of_all_elements_located(by_locator))
+            return element[index].text

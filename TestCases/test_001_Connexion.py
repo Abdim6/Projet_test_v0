@@ -7,6 +7,7 @@ Owner : Abdi
 """
 from PageObjects.ObPage import Page_OB_Connexion
 from PageObjects.HomePage import HomePage
+from PageObjects.MonCompte import MonCompte
 from Utilities.customLogger import LogGen
 from Utilities import XLUtils
 from faker import Faker
@@ -105,6 +106,7 @@ class Test_001_Connexion:
         self.driver = setup_SansConnexionUser
         self.hp=HomePage(self.driver)
         self.lp=Page_OB_Connexion(self.driver)
+        self.mn=MonCompte(self.driver)
 
         time.sleep(1)
         self.hp.clickMonCompteBtn() 
@@ -114,6 +116,8 @@ class Test_001_Connexion:
         self.lp.setemail(self.rand_mail)
         time.sleep(1)
         self.lp.setPassword(self.rand_pwd)
+        time.sleep(1)
+        self.lp.clickCheckBox_newletter()
         time.sleep(1)
         self.lp.clickInscrire()
         time.sleep(1)
@@ -131,6 +135,9 @@ class Test_001_Connexion:
         XLUtils.writeData(self.path,"Feuil1",nbLigne+1,6,"pass")
 
         time.sleep(2)
+        textePaperMesoptions = self.mn.getContenuPaperMesOptions()
+        assert "Vous n'avez souscrit à aucune option payante." in textePaperMesoptions
+
         self.hp.clickMesInfos()
         time.sleep(2)
         monEmail = self.hp.getdonneesEmail()
@@ -140,12 +147,29 @@ class Test_001_Connexion:
         print(genre)
         # import pdb; pdb.set_trace()
         assert monEmail == self.rand_mail
+
 ### le genre, ça serait mieux soit le mettre dans le fichier .ini avec un tuple en retour (num @ le lettre coorespondant)
 ### Ou le générer en random et puis pareil faire correspond avec la lettre correspondante
 ### Ca serait mieux d'effectuer les asserts dirrectement sans passer par une variable intermédiaire
 
         assert date_naissance == self.random_date_fr 
-        assert genre == "mf", "le genre n'est pas TOP"
+        assert genre == "m", "le genre n'est pas TOP"
+        emailAvatar = self.mn.getEmailSousAvatar()
+        assert emailAvatar == self.rand_mail
+
+        time.sleep(2)
+
+        self.mn.clickNewslettersBtn()
+
+        # import pdb; pdb.set_trace()
+        
+        etatToggleNewsletter = self.mn.get_toggleState()
+        assert etatToggleNewsletter =="false"
+        time.sleep(2)
+        
+        self.mn.clickFiltreParentalBtn()
+        etatToggleFiltreParental = self.mn.get_toggleState()
+        assert etatToggleFiltreParental =="false"
 
         # assert monEmail == self.rand_mail+"1", "L'email sur mon compte ne correspond pas à celui utilisé pour la souscription"
         # print ("Ceci est l'email affiché : "+monEmail)
@@ -155,5 +179,3 @@ class Test_001_Connexion:
         
         self.logger.info("***************** FIN - Test_SOUSCRIPTION_NEW_USER ***************")
         self.logger.info("***************** FIN - Test_001_Connexion ****************")
-
-    

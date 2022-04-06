@@ -35,6 +35,9 @@ class Page_OB_Connexion:
     def setpwd(self,pwd):
         self.Action.enter_text(Locators.pwd_inscription, pwd)
 
+    def clickCheckBox_newletter(self):
+        self.Action.click(Locators.checkBox_newsletter)
+
     def clickInscrire(self):
         self.Action.click(Locators.button_inscrire_new)
  

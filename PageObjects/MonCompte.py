@@ -34,4 +34,24 @@ class MonCompte:
     def get_prenom(self):
         # self.Action.get_value(Locators.donneesperso_email)
         return self.Action.get_property(Locators.textbox_firstname_id, "value")
-  
+    
+    def clickNewslettersBtn(self):
+        self.Action.hover_to_list(Locators.listeOnglet_monCompte_Class,2)
+        self.Action.click_one_ofElements(Locators.listeOnglet_monCompte_Class, 2)
+    
+    def clickFiltreParentalBtn(self):
+        self.Action.hover_to_list(Locators.listeOnglet_monCompte_Class,5)
+        self.Action.click_one_ofElements(Locators.listeOnglet_monCompte_Class, 5)
+
+    def clickListeFavorisBtn(self):
+        self.Action.hover_to_list(Locators.listeOnglet_monCompte_Class,0)
+        self.Action.click_one_ofElements(Locators.listeOnglet_monCompte_Class, 0)
+
+    def getContenuPaperMesOptions(self):
+        return self.Action.get_text(Locators.listPapersPageVuEnsemble, 2)
+
+    def get_toggleState(self):
+        return self.Action.get_attribute(Locators.unToggle, "aria-checked")
+
+    def getEmailSousAvatar(self):
+        return self.Action.get_text(Locators.emailSousAvatar, -1)
