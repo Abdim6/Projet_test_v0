@@ -24,6 +24,13 @@ class Test_001_Connexion:
         self.logger.info("***************** DEBUT - test_Connexion_PlusieursID_EnBoucle ***************")
         self.driver = setup_SansConnexionUser
         self.hp=HomePage(self.driver)
+        infosToaster = self.hp.getInfosToaster()
+        #Vérifier quelques données liées au Toaster - affichage + statut + message affiché
+        #Faudra vérifier ailleurs pour s'assurer l'état d'affichage
+        
+        assert infosToaster[0] == True
+        assert "SUCCESS" in infosToaster[1] 
+        assert "Vos choix ont bien été enregistrés" in infosToaster[2]
 
         self.nbLigne = XLUtils.getRowCount(self.path, "Feuil1")
         print(f"Le fichier excel contient {self.nbLigne} ID de connexion")
@@ -99,9 +106,11 @@ class Test_001_Connexion:
         self.rand_password_lower = "".join(random.choice(letters) for i in range(5))
         self.rand_password_upper = "".join(random.choice(letters_upper) for i in range(5))
         self.rand_pwd = self.rand_password_lower+self.rand_password_upper + str(5)
+
+        "Génération date de naissance random"
         fake = Faker()
-        random_date = fake.date_between(start_date='-50y', end_date='-16y')
-        self.random_date_fr = datetime.datetime.strftime(random_date, '%d/%m/%Y')
+        random_date_en = fake.date_between(start_date='-50y', end_date='-16y')
+        self.random_date_fr = datetime.datetime.strftime(random_date_en, '%d/%m/%Y')
 
         self.driver = setup_SansConnexionUser
         self.hp=HomePage(self.driver)
@@ -147,6 +156,8 @@ class Test_001_Connexion:
         print(genre)
         # import pdb; pdb.set_trace()
         assert monEmail == self.rand_mail
+        emailAvatar = self.mn.getEmailSousAvatar()
+        assert emailAvatar == self.rand_mail
 
 ### le genre, ça serait mieux soit le mettre dans le fichier .ini avec un tuple en retour (num @ le lettre coorespondant)
 ### Ou le générer en random et puis pareil faire correspond avec la lettre correspondante
@@ -154,9 +165,6 @@ class Test_001_Connexion:
 
         assert date_naissance == self.random_date_fr 
         assert genre == "m", "le genre n'est pas TOP"
-        emailAvatar = self.mn.getEmailSousAvatar()
-        assert emailAvatar == self.rand_mail
-
         time.sleep(2)
 
         self.mn.clickNewslettersBtn()

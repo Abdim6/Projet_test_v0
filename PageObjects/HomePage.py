@@ -75,4 +75,8 @@ class HomePage:
         self.Action.get_property(Locators.AjoutFavoris_btn_Class_3, "aria-pressed")
         "Faut que trouve une solution pour cliquer un element dans une liste d'elements ..."
 
-       
+    def getInfosToaster(self):
+        affiche_etat = self.Action.is_visible(Locators.toaster)
+        resultat_etat = self.Action.get_attribute(Locators.toaster, "type")
+        message_toaster = self.Action.get_attribute(Locators.toaster, "innerText")
+        return affiche_etat, resultat_etat, message_toaster

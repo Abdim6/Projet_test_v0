@@ -67,3 +67,6 @@ class Locators():
     liste_genre = (By.ID,"gender")
     section_age = (By.ID,"birthdate")
     button_terminer = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div > form > div.sc-1skm6pc-1.dkVizr > button")
+
+    #-------- Common Objets ----------
+    toaster = (By.CLASS_NAME, "sc-39i7e7-3.bNGjHB")
