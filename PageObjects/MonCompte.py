@@ -55,3 +55,24 @@ class MonCompte:
 
     def getEmailSousAvatar(self):
         return self.Action.get_text(Locators.emailSousAvatar, -1)
+
+    def choixGenre(self, choix):
+        self.Action.click(Locators.liste_genre)
+        self.Action.select_InList(Locators.liste_genre,choix)
+       
+    def setAge(self, age):
+        self.Action.clear_input(Locators.section_age)
+        self.Action.enter_text(Locators.section_age, age)
+
+    def get_genre(self):
+        return self.Action.get_attribute(Locators.liste_genre, "value")
+
+    def click_ProgFavoris_0(self):
+        self.Action.click(Locators.listeProgFavoris)
+    
+    def get_titleProgFavoris_0(self):
+        return self.Action.get_attribute(Locators.listeProgFavoris, "title")
+
+    def verif_visibilityProgFavoris_0(self):
+        return self.Action.is_visible(Locators.listeProgFavoris)
+        

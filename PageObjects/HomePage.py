@@ -25,7 +25,7 @@ class HomePage:
         self.Action.click(Locators.consent_accepter_Class)
 
     def clickMonCompteBtn(self):
-        self.Action.click(Locators.moncompte_btn_xml)
+        self.Action.click(Locators.moncompte_btn)
 
     def clickHomeBtn(self):
         self.Action.click(Locators.HomeBtn_CSS)
@@ -80,3 +80,7 @@ class HomePage:
         resultat_etat = self.Action.get_attribute(Locators.toaster, "type")
         message_toaster = self.Action.get_attribute(Locators.toaster, "innerText")
         return affiche_etat, resultat_etat, message_toaster
+
+    def chercheProgramme(self, prog):
+        self.Action.clear_input(Locators.recherche_input)
+        self.Action.enter_text(Locators.recherche_input,prog)

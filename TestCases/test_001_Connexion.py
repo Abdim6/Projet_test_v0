@@ -27,7 +27,7 @@ class Test_001_Connexion:
         infosToaster = self.hp.getInfosToaster()
         #Vérifier quelques données liées au Toaster - affichage + statut + message affiché
         #Faudra vérifier ailleurs pour s'assurer l'état d'affichage
-        
+        #Pense à sauvegarder certaines données dans un fichier .INI
         assert infosToaster[0] == True
         assert "SUCCESS" in infosToaster[1] 
         assert "Vos choix ont bien été enregistrés" in infosToaster[2]

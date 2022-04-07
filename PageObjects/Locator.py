@@ -18,6 +18,7 @@ class Locators():
     liste_chaines_class = (By.CLASS_NAME,"b8xld8-1")
     objetHomePage_CSS = (By.CSS_SELECTOR,"#main > div > section:nth-child(3) > div.y84eg7-0.sc-8pi7if-0.LuxLU > h1")
     moncompte_btn_xml = (By.XPATH,'//*[@id="__brk"]/div/div[2]/div[2]/div/header/div/div/nav/div[1]/ul/li[5]/button')
+    moncompte_btn = (By.CLASS_NAME,"oxwymj-0.jtrbaw.sc-1ajxxj-0")
     mesinfo_btn = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > aside > nav > ul > li:nth-child(3) > a > span")
     #Pk pas passer par la liste des element de toggle ... (à y réfléchir)
     mesinfo_btn_xml = (By.XPATH,'//*[@id="__brk"]/div/div[2]/div[2]/div/main/aside/nav/ul/li[3]/a')
@@ -44,6 +45,7 @@ class Locators():
     listPapersPageVuEnsemble = (By.CLASS_NAME, "sc-1l13vdx-0")
     unToggle = (By.CLASS_NAME, "sc-16ji6st-1")
     emailSousAvatar = (By.CLASS_NAME, "sc-1veuio6-0.dktssj.sc-4pq0st-5")
+    listeProgFavoris= (By.CLASS_NAME, "sc-65owou-12.cdFdFb")
     #--- Page Recherche ---
     dernierReplay_CSS = (By.CSS_SELECTOR,"#page_62209fc7e252e0\.25802620--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8 > div.sc-1jzygab-5.fNJpJi > ul > li:nth-child(1)")
     listReplay_CSS = (By.CSS_SELECTOR,"#page_62232bab6c0893\.70856363--4443f32c-c6ee-4b72-86e1-8fbeb2625bc8 > div.sc-1jzygab-5.fNJpJi > ul")
@@ -57,16 +59,22 @@ class Locators():
 
     # button_login_CSS_Selector = 'body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > form > button > span > span > span'
     button_login_xml = (By.XPATH,"/html/body/div[3]/div/div/div/div/div[2]/form/button")
+    button_login = (By.CLASS_NAME, "sc-1esye45-2.dVskuE.sc-1rcwfs0-2")
     button_inscription = (By.CLASS_NAME,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a")
     button_inscription_new = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-5.jhrtwX > div > a")
+    button_inscription = (By.CLASS_NAME, "sc-3k9bbt-1")
     email_inscription =(By.ID,"email")
     pwd_inscription =(By.ID,"password")
     checkBox_newsletter_Id = (By.ID,"newsletter")
     checkBox_newsletter = (By.CLASS_NAME,"sc-1skamf2-2.jaXsIo")
     button_inscrire_new = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div.sc-1skm6pc-0.kosLNi.kqtu9n-2.hsHvHs > form > div.sc-1skm6pc-1.dkVizr > button")
+    button_inscrire = (By.CLASS_NAME,"sc-1esye45-2.dVskuE.sc-1skm6pc-2")
     liste_genre = (By.ID,"gender")
     section_age = (By.ID,"birthdate")
-    button_terminer = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div > form > div.sc-1skm6pc-1.dkVizr > button")
-
+    button_terminer_CSS = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div > form > div.sc-1skm6pc-1.dkVizr > button")
+    button_terminer = (By.CLASS_NAME,"sc-1esye45-2.dVskuE.sc-1skm6pc-2")
     #-------- Common Objets ----------
     toaster = (By.CLASS_NAME, "sc-39i7e7-3.bNGjHB")
+
+    #----------- Recherche -----------
+    recherche_input = (By.CLASS_NAME, "sc-1rj23wu-4.lndKVw")

@@ -24,10 +24,10 @@ class Page_OB_Connexion:
         self.Action.enter_text(Locators.textbox_password_id, password)
         
     def clickLogin(self):
-        self.Action.click(Locators.button_login_xml)
+        self.Action.click(Locators.button_login)
 
     def clickInscription(self):
-        self.Action.click(Locators.button_inscription_new)
+        self.Action.click(Locators.button_inscription)
 
     def setemail(self,email):
         self.Action.enter_text(Locators.email_inscription, email)
@@ -39,7 +39,7 @@ class Page_OB_Connexion:
         self.Action.click(Locators.checkBox_newsletter)
 
     def clickInscrire(self):
-        self.Action.click(Locators.button_inscrire_new)
+        self.Action.click(Locators.button_inscrire)
  
     def choixGenre(self, choix):
         self.Action.select_InList(Locators.liste_genre,choix)
