@@ -6,15 +6,16 @@ Owner : Abdi
 from PageObjects.HomePage import HomePage
 from PageObjects.MonCompte import MonCompte
 from Utilities.customLogger import LogGen
+from TestCases import conftest
 import time
-from faker import Faker
-import datetime
+# from faker import Faker
+# import datetime
 
 
 class Test_002_ModifierDonneesUser:
     logger = LogGen.loggen()
 
-    def test_homePageTitle(self,setup_AvecConnexionUser):
+    def test_modifierDonnees(self,setup_AvecConnexionUser):
         self.logger.info("***************** DEBUT - Test_002_ModifierDonneesUser ****************")
         self.driver = setup_AvecConnexionUser
 
@@ -33,11 +34,9 @@ class Test_002_ModifierDonneesUser:
         time.sleep(1)
         self.mn.setNom("Bileh")
         time.sleep(2)
-        #une fonction a factoriser 
-        fake = Faker()
-        random_date_en = fake.date_between(start_date='-50y', end_date='-16y')
-        self.random_date_fr = datetime.datetime.strftime(random_date_en, '%d/%m/%Y')
-        self.mn.setAge(self.random_date_fr)
+
+        # self.mn.setAge(self.random_date_fr)
+        self.mn.setAge(conftest.genere_date())
         time.sleep(2)
         if self.mn.get_genre()=='f':self.mn.choixGenre(1)
         else : self.mn.choixGenre(2)
@@ -45,19 +44,20 @@ class Test_002_ModifierDonneesUser:
         """
         Modifier la date de naissance  - ok 
         Modifier le genre              - ok 
-        Page des favoris => recup nb prog favoris
-        choisi un prog et clique dessus 
-        sort le de la liste de favoris + vérifie le toaster 
-        retour à la page des favoris + vérif si le prog est bien enlévé de la selection
-        si il n'a pas de favoris dans la liste sort directement et afficher un message ("ALERTE! ou ERREUR!)
-        sauvegarder le prog mis en favoris dans un fichier excel pour le tester dans un autre test, si toujours présent
+        Page des favoris => recup nb prog favoris (donc vérifie sur le nb-1 après avoir enlever un)
+        Choisi un prog et clique dessus - ok 
+        Sort le de la liste de favoris + vérifie le toaster - ok 
+        Retour à la page des favoris + vérif si le prog est bien enlévé de la selection () (donc vérifie sur le nb-1 après avoir enlever un)
+        => fais en sorte qu'il aie tjrs un pro favoris au moins dans la liste, ajout lors dans un autre scénario
+        Si il n'a pas de favoris dans la liste sort directement et afficher un message ("ALERTE! ou ERREUR!)
+        Sauvegarder le prog mis en favoris dans un fichier excel pour le tester dans un autre test, si toujours présent
         """
         self.mn.clickValider()
         time.sleep(2)
         self.mn.clickListeFavorisBtn()
-        time.sleep(2)
+        time.sleep(1)
         titleProgFavoris = self.mn.get_titleProgFavoris_0()
-        print(titleProgFavoris)
+        # print(titleProgFavoris)
         self.mn.click_ProgFavoris_0()
         time.sleep(2)
 
@@ -75,7 +75,7 @@ class Test_002_ModifierDonneesUser:
         self.mn.clickListeFavorisBtn()
         time.sleep(2)
         """ICI faut reflechir comment vérifier que le prog supprimer ne soit pas affiche dans cette liste
-         => utilise plutot une liste et prevoit le cas ou il ny'a pas de favoris
+         => utilise plutot une liste et prevoit le cas ou il n'y'a pas de favoris
          peut etre comparer le titre du 1er prog, 
          premièrement fallait recupérer le nb de prog favoris pour comparre plus tard ... à voir si c'est faisable
          peut etre utilise l'action invisibility?
@@ -99,12 +99,13 @@ class Test_002_ModifierDonneesUser:
         time.sleep(2)
         self.mn.clickListeFavorisBtn()
         time.sleep(2)
-        titleProgFavoris = self.mn.get_titleProgFavoris_0()
-        print("vérifie titre :", titleProgFavoris)
+        # titleProgFavoris = self.mn.get_titleProgFavoris_0()
+        assert titleProgFavoris == self.mn.get_titleProgFavoris_0()
+        # print("vérifie titre :", titleProgFavoris)
 
         # import pdb;pdb.set_trace()
 
-        time.sleep(5)    #ce time out est tres important, reflechi comment l'optimiser
+        time.sleep(3)    #ce time out est tres important, reflechi comment l'optimiser
         self.hp.clickdeco()
-        time.sleep(3)
+        time.sleep(2)
         self.logger.info("***************** FIN - Test_002_ModifierDonneesUser ****************")

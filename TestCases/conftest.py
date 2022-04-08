@@ -4,7 +4,7 @@ Dernière mise à jour importante : 10/03/2022
 Owner : Abdi
 """
 
-from random import random
+import random
 import pytest
 # import string
 from PageObjects.ObPage import Page_OB_Connexion
@@ -20,6 +20,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
+from faker import Faker
+import datetime
+import string
 
 
 ##### Un setup qui lance le driver et qui charge l'application AVEC connexion + un tearndown qui kill le driver à la fin de test #####
@@ -150,3 +153,19 @@ def pytest_html_report_title(report):
     report.title = "My very own title!"
 
 
+#Génération d'une date de naissance random - date naissance User Majeur 
+def genere_date():
+    fake = Faker()
+    random_date_en = fake.date_between(start_date='-50y', end_date='-16y')
+    random_date_fr = datetime.datetime.strftime(random_date_en, '%d/%m/%Y')
+    return random_date_fr
+
+def genere_IdRandom():
+    letters = string.ascii_lowercase
+    letters_upper = string.ascii_uppercase
+    rand_string = "".join(random.choice(letters) for i in range(15))
+    rand_mail = rand_string + "@gmail.com"
+    rand_password_lower = "".join(random.choice(letters) for i in range(5))
+    rand_password_upper = "".join(random.choice(letters_upper) for i in range(5))
+    rand_pwd = rand_password_lower+rand_password_upper + str(5)
+    return rand_mail,rand_pwd
