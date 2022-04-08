@@ -1,7 +1,7 @@
 **/TopSecret
-Reports/
-Logs/
-Screenshot/
+**/Reports
+**/Logs
+**/Screenshot
 __pycache__/
 PageObjects/Old_files
 TestCases/Old_Files

@@ -19,6 +19,7 @@ import time
 class Test_001_Connexion:
     logger = LogGen.loggen()
     path = "./testData/LoginData.xlsx"
+
     def test_Connexion_PlusieursID_EnBoucle(self,setup_SansConnexionUser):
         self.logger.info("***************** DEBUT - Test_001_Connexion ****************")
         self.logger.info("***************** DEBUT - test_Connexion_PlusieursID_EnBoucle ***************")
