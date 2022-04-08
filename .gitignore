@@ -2,7 +2,7 @@
 **/Reports
 **/Logs
 **/Screenshot
-__pycache__/
-PageObjects/Old_files
-TestCases/Old_Files
-Utilities/__pycache__
+**/__pycache__
+**/PageObjects/Old_files
+**/TestCases/Old_Files
+**/Utilities/__pycache__
