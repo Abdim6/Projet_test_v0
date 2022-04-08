@@ -68,6 +68,10 @@ class Test_002_ModifierDonneesUser:
         # time.sleep(3)
         # self.hp.clickDernierReplay()
         # time.sleep(5)
+        titleProg = self.hp.getTitleProgramme()
+        "Vérifie la correspondance entre le titre du prog dans le liste de favoris et celui sur la page actuelle"
+        assert titleProg == titleProgFavoris
+        "Action de deselection de programme"
         self.hp.clickAjoutFavoris()
         time.sleep(2)
         self.hp.clickMonCompteBtn()

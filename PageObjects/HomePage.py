@@ -84,3 +84,6 @@ class HomePage:
     def chercheProgramme(self, prog):
         self.Action.clear_input(Locators.recherche_input)
         self.Action.enter_text(Locators.recherche_input,prog)
+
+    def getTitleProgramme(self):
+        return self.Action.get_attribute(Locators.playVideoBtn, "aria-label")
