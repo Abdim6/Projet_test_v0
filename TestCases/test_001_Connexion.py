@@ -143,6 +143,7 @@ class Test_001_Connexion:
         time.sleep(2)
         textePaperMesoptions = self.mn.getContenuPaperMesOptions()
         assert "Vous n'avez souscrit à aucune option payante." in textePaperMesoptions
+        self.logger.info("***************** Vérification - OK (User n'a pas un abonnement) ***************")
 
         self.hp.clickMesInfos()
         time.sleep(2)
@@ -152,11 +153,13 @@ class Test_001_Connexion:
         assert monEmail == self.rand_mail
         # emailAvatar = self.mn.getEmailSousAvatar()
         assert self.mn.getEmailSousAvatar() == self.rand_mail
+        self.logger.info("***************** Vérification - OK (Email correspond bien à celui utilisé lors de l'inscription) ***************")
         ### le genre, ça serait mieux soit le mettre dans le fichier .ini avec un tuple en retour (num @ le lettre coorespondant)
         ### Ou le générer en random et puis pareil faire correspond avec la lettre correspondante
         ### Ca serait mieux d'effectuer les asserts dirrectement sans passer par une variable intermédiaire
         assert date_naissance == date 
         assert genre == "m", "le genre n'est pas TOP"
+        self.logger.info("***************** Vérification - OK (date de naissance et genre sont OK) ***************")
         time.sleep(2)
         
         self.mn.clickNewslettersBtn()
@@ -169,6 +172,7 @@ class Test_001_Connexion:
         time.sleep(1)
         etatToggleFiltreParental = self.mn.get_toggleState()
         assert etatToggleFiltreParental =="false"
+        self.logger.info("***************** Vérification - OK (Les toggles sont à Off, donc Ok) ***************")
         time.sleep(1)
         # assert monEmail == self.rand_mail+"1", "L'email sur mon compte ne correspond pas à celui utilisé pour la souscription"
         # print ("Ceci est l'email affiché : "+monEmail)
