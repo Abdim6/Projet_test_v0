@@ -80,6 +80,7 @@ class common_Actions():
     def get_property(self,by_locator, type_property):
         element = self.wait.until(EC.visibility_of_element_located(by_locator))
         return element.get_property(type_property)
+
     #this function return a attribute of an element value
     def get_attribute(self,by_locator, type_property):
         element = self.wait.until(EC.visibility_of_element_located(by_locator))
@@ -99,6 +100,6 @@ class common_Actions():
             element = self.wait.until(EC.visibility_of_all_elements_located(by_locator))
             return element[index].text
     
-    #Invisibility of element
+    #Invisibility of element VIDEO - (peut etre faudra utiliser attendre la visibilité du titre du clip non? avec un temps long biensur)
     def waitInvisibility(self, by_locator):
         self.WebDriverWait(self.driver, 1000).until(EC.invisibility_of_element(by_locator))
