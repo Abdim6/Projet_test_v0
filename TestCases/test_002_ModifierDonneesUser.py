@@ -66,7 +66,7 @@ class Test_002_ModifierDonneesUser:
         # time.sleep(2)
         # self.hp.clickSurRecherche()
         # time.sleep(3)
-        # self.hp.clickDernierReplay()
+        # self.mn.clickDernierReplay()
         # time.sleep(5)
         titleProg = self.hp.getTitleProgramme()
         "Vérifie la correspondance entre le titre du prog dans le liste de favoris et celui sur la page actuelle"
@@ -92,10 +92,10 @@ class Test_002_ModifierDonneesUser:
 
         self.hp.clickSurRecherche()
         time.sleep(1)
-        self.hp.chercheProgramme(titleProgFavoris)
+        self.mn.chercheProgramme(titleProgFavoris)
         "ICI la page se charge pas vite, d'où le wait long, à terme faudra parametrer en auto"
         time.sleep(3)
-        self.hp.clickDernierReplay()
+        self.mn.clickDernierReplay()
         time.sleep(3)
         self.hp.clickAjoutFavoris()
         time.sleep(2)
@@ -110,6 +110,6 @@ class Test_002_ModifierDonneesUser:
         # import pdb;pdb.set_trace()
 
         time.sleep(3)    #ce time out est tres important, reflechi comment l'optimiser
-        self.hp.clickdeco()
+        self.mn.clickdeco()
         time.sleep(2)
         self.logger.info("***************** FIN - Test_002_ModifierDonneesUser ****************")

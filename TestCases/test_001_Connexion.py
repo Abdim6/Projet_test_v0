@@ -25,7 +25,8 @@ class Test_001_Connexion:
         self.logger.info("***************** DEBUT - test_Connexion_PlusieursID_EnBoucle ***************")
         self.driver = setup_SansConnexionUser
         self.hp=HomePage(self.driver)
-        infosToaster = self.hp.getInfosToaster()
+        self.mn=MonCompte(self.driver)
+        infosToaster = self.mn.getInfosToaster()
         #Vérifier quelques données liées au Toaster - affichage + statut + message affiché
         #Faudra vérifier ailleurs pour s'assurer l'état d'affichage
         #Pense à sauvegarder certaines données dans un fichier .INI
@@ -67,7 +68,7 @@ class Test_001_Connexion:
             if act_title == exp_title:
                 if self.exp == "pass":
                     self.logger.info("***************** Pass OK ****************")
-                    self.hp.clickdeco()
+                    self.mn.clickdeco()
                     XLUtils.writeData(self.path,"List_ID",nb,7,"PASS")
                     time.sleep(2)
                     lst_status.append("pass")
@@ -145,11 +146,11 @@ class Test_001_Connexion:
         assert "Vous n'avez souscrit à aucune option payante." in textePaperMesoptions
         self.logger.info("***************** Vérification - OK (User n'a pas un abonnement) ***************")
 
-        self.hp.clickMesInfos()
+        self.mn.clickMesInfos()
         time.sleep(2)
-        monEmail = self.hp.getdonneesEmail()
-        date_naissance = self.hp.getdonneesDate()
-        genre = self.hp.getdonneesGenre()
+        monEmail = self.mn.getdonneesEmail()
+        date_naissance = self.mn.getdonneesDate()
+        genre = self.mn.getdonneesGenre()
         assert monEmail == self.rand_mail
         # emailAvatar = self.mn.getEmailSousAvatar()
         assert self.mn.getEmailSousAvatar() == self.rand_mail

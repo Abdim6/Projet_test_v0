@@ -76,3 +76,42 @@ class MonCompte:
     def verif_visibilityProgFavoris_0(self):
         return self.Action.is_visible(Locators.listeProgFavoris)
         
+    # "A deplacer"
+    def clickdeco(self):
+        self.Action.click(Locators.btn_deconnexion_CSS)
+
+    # "A deplacer"    
+    def clickMesInfos(self):
+        self.Action.click(Locators.mesinfo_btn_xml)
+
+    # "A deplacer"
+    def getdonneesEmail(self):
+        # self.Action.get_value(Locators.donneesperso_email)
+        return self.Action.get_property(Locators.email_Id, "value")
+        
+# "A deplacer"
+    def getdonneesDate(self):
+        # self.Action.get_value(Locators.donneesperso_email)
+        return self.Action.get_property(Locators.date_naissance_Id, "value")
+
+# "A deplacer"
+    def getdonneesGenre(self):
+        # self.Action.get_value(Locators.donneesperso_email)
+        return self.Action.get_property(Locators.genre_Id, "value")
+
+# "A deplacer" => recherche page
+    def clickDernierReplay(self):
+        "cette action m'a donné un file à retordre, review et a ANALYSER"
+        self.Action.click(Locators.liste_dernierReplay_Class)
+
+# "A deplacer" => generaliste page
+    def getInfosToaster(self):
+        affiche_etat = self.Action.is_visible(Locators.toaster)
+        resultat_etat = self.Action.get_attribute(Locators.toaster, "type")
+        message_toaster = self.Action.get_attribute(Locators.toaster, "innerText")
+        return affiche_etat, resultat_etat, message_toaster
+
+# "A deplacer" => recherche page
+    def chercheProgramme(self, prog):
+        self.Action.clear_input(Locators.recherche_input)
+        self.Action.enter_text(Locators.recherche_input,prog)
