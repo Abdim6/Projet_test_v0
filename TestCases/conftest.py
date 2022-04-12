@@ -14,18 +14,18 @@ from Utilities.customLogger import LogGen
 
 import time
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
+# from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.support.ui import Select
 from faker import Faker
 import datetime
 import string
 
 
-##### Un setup qui lance le driver et qui charge l'application AVEC connexion + un tearndown qui kill le driver à la fin de test #####
+##### Un setup qui lance le driver et qui lance l'application AVEC connexion + un tearndown qui kill le driver à la fin de test #####
 @pytest.fixture
 def setup_AvecConnexionUser():
     baseURL = ReadConfig.getApplicationURL()
@@ -66,7 +66,7 @@ def setup_AvecConnexionUser():
     driver.quit()
 
 
-##### Un setup qui lance le driver et charge l'application sans connexion + un tearndown qui kill le driver à la fin de test #####
+##### Un setup qui lance le driver et lance l'application sans connexion + un tearndown qui kill le driver à la fin de test #####
 @pytest.fixture
 def setup_SansConnexionUser():
     baseURL = ReadConfig.getApplicationURL()
@@ -110,8 +110,10 @@ def setup_2():
     return driver
 
 ############### Un setup pour lancer le driver + permet de choisir le browser au choix #############
+# lance l'app sans être connecté 
 @pytest.fixture
 def setup_1(browser):
+    baseURL = ReadConfig.getApplicationURL()
     if browser == "chrome":
         driver=webdriver.Chrome()
         print("")
@@ -124,7 +126,24 @@ def setup_1(browser):
         print("")
         print("Nous utilisons IE ......")
     driver.maximize_window()
-    return driver
+    # return driver
+    "------------------"
+    driver.get(baseURL)
+    
+    logger = LogGen.loggen()
+    username = ReadConfig.getUserEmail()
+    password = ReadConfig.getUserPassword()
+    logger.info("***************** DEBUT - De la connexion ****************")
+    
+    "Cliquer sur la modale + btn mon compte"
+    hp=HomePage(driver)
+    hp.clickaccepterTCF() 
+  
+    logger.info("***************** FIN - Connexion User ****************")
+    "-------------------"
+    yield driver
+
+    driver.quit()
 
 ############# Config pour le choix de browser souhaité : ###############
 def pytest_addoption(parser):   #this will ger rhe value from CLI/hooks
