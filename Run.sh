@@ -14,7 +14,7 @@ pytest --alluredir=allure-reports /Users/abdi.bileh17/Documents/Selenium/Projet_
 # sleep 3
 
 # allure serve Reports/my_allure_report   
-allure serve allure-reports 
+# allure serve allure-reports 
 
 # "commande avec allure"
 # pytest --alluredir TestCases/test_modif_profil.py
