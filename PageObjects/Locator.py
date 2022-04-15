@@ -84,5 +84,9 @@ class Locators():
     playVideoBtn= (By.CLASS_NAME, "f1uzip-4.dmMbKI")
     volumeBtn = (By.CLASS_NAME, "sc-18pg9dp-1.kRQxtE")
     listeBtnPlayer = (By.CLASS_NAME, "sc-18pg9dp-1.kUXPYC")
-    tempsEcouler = (By.CLASS_NAME, "sc-1veuio6-0.dktssj.sc-1sefa71-0.dOsukc")
-    
+    # tempsEcouler = (By.CLASS_NAME, "sc-1veuio6-0.dktssj.sc-1sefa71-0.dOsukc")
+    labelPubPlayer = (By.CLASS_NAME,"sc-1veuio6-0.iBPSfB.sc-1nm66sh-0.cnURdr")
+    labelTitrePlayer = (By.CLASS_NAME,"sc-1veuio6-0.iBPSfB.sc-1nm66sh-0.kZvSZt")
+    retourNavigateur = (By.CLASS_NAME, "sc-1veuio6-0.dktssj.sc-1esye45-1.lgIYbk")
+    tempsEcouler = (By.CSS_SELECTOR, '#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > div.gc9lg7-0.gMFfMe > div > div.doaj7e-2.inYYZS.player-block > div.bqhce0-0.nQedO.f7ykxc-2.jfychL > div > div.tdiixd-0.drRydg.f7ykxc-6.fybGlx > div.f7ykxc-7.kSBBYY > span.sc-1veuio6-0.dktssj.sc-1sefa71-0.dOsukc')
+

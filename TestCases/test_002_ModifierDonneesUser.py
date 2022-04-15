@@ -5,6 +5,7 @@ Owner : Abdi
 """
 from PageObjects.HomePage import HomePage
 from PageObjects.MonCompte import MonCompte
+from PageObjects.Recherche import Recherche
 from Utilities.customLogger import LogGen
 from TestCases import conftest
 import time
@@ -21,8 +22,9 @@ class Test_002_ModifierDonneesUser:
 
         "Modifier les données de User"
         self.hp=HomePage(self.driver)
-        time.sleep(2)
         self.mn = MonCompte(self.driver)
+        self.recherche = Recherche(self.driver)
+
         self.mn.clickgenerInfo()
         time.sleep(1)
         self.mn.clickModifier()
@@ -92,10 +94,10 @@ class Test_002_ModifierDonneesUser:
 
         self.hp.clickSurRecherche()
         time.sleep(1)
-        self.mn.chercheProgramme(titleProgFavoris)
+        self.recherche.chercheProgramme(titleProgFavoris)
         "ICI la page se charge pas vite, d'où le wait long, à terme faudra parametrer en auto"
         time.sleep(3)
-        self.mn.clickDernierReplay()
+        self.recherche.clickDernierReplay()
         time.sleep(3)
         self.hp.clickAjoutFavoris()
         time.sleep(2)

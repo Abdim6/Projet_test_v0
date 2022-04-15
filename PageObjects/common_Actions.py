@@ -24,6 +24,7 @@ class common_Actions():
     def __init__(self, driver):
         self.driver=driver
         self.wait = WebDriverWait(self.driver, 10)
+        
 
     # this function performs click on web element whose locator is passed to it.
     def click(self, by_locator):
@@ -64,12 +65,14 @@ class common_Actions():
     # this function moves the mouse pointer over a web element whose locator has been passed to it.
     def hover_to_oneElement(self, by_locator):
         element = self.wait.until(EC.visibility_of_element_located(by_locator))
-        ActionChains(self.driver).move_to_element(element).perform()
+        ActionChains(self.driver).move_to_element(element)
+        ActionChains(self.driver).perform()
 
     # this function moves the mouse pointer over a web element in list whose locator has been passed to it.
     def hover_to_list(self, by_locator,index):
         element = self.wait.until(EC.visibility_of_all_elements_located(by_locator))
-        ActionChains(self.driver).move_to_element(element[index]).perform()
+        ActionChains(self.driver).move_to_element(element[index])
+        ActionChains(self.driver).perform()
 
     def select_InList(self,by_locator,index):
         element = self.wait.until(EC.visibility_of_element_located(by_locator))
@@ -92,8 +95,8 @@ class common_Actions():
 
 ##ici faudra separer quand l'element est parmi une liste et lorsque'il est seul####
     #this function return the text of an element 
-    def get_text(self,by_locator,index):
-        if index==-1 : 
+    def get_text(self,by_locator,index=0):
+        if index==0 : 
             element = self.wait.until(EC.visibility_of_element_located(by_locator))
             return element.text
         else:
@@ -102,4 +105,4 @@ class common_Actions():
     
     #Invisibility of element VIDEO - (peut etre faudra utiliser attendre la visibilité du titre du clip non? avec un temps long biensur)
     def waitInvisibility(self, by_locator):
-        self.WebDriverWait(self.driver, 1000).until(EC.invisibility_of_element(by_locator))
+        WebDriverWait(self.driver, 1000).until(EC.invisibility_of_element(by_locator))
