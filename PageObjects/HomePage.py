@@ -55,3 +55,10 @@ class HomePage:
 
     def getTitleProgramme(self):
         return self.Action.get_attribute(Locators.playVideoBtn, "aria-label")
+    
+    # "A deplacer" => generaliste page
+    def getInfosToaster(self):
+        affiche_etat = self.Action.is_visible(Locators.toaster)
+        resultat_etat = self.Action.get_attribute(Locators.toaster, "type")
+        message_toaster = self.Action.get_attribute(Locators.toaster, "innerText")
+        return affiche_etat, resultat_etat, message_toaster

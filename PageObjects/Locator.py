@@ -28,7 +28,6 @@ class Locators():
     AjoutFavoris_btn_Xpath = (By.XPATH,'//*[@id="page_6230ac5c387d43.50469081--6a469067-d4c3-4e3f-a32f-46167d79122d"]/div[2]/div[2]/div[1]/button')
     AjoutFavoris_btn_CSS_2 = (By.CSS_SELECTOR, "#page_62427a917a84a2\.69363779--351033ba-209c-4ed1-af67-fe1e8a56d637 > div.qd8avx-0.jwKxkB > div.nei5bm-2.cNRBFu > div.nei5bm-9.fEDJNC > button > div")
     AjoutFavoris_btn_Class_3 = (By.CLASS_NAME, "oxwymj-0.jtrbaw.f1uzip-4")
-    playVideoBtn= (By.CLASS_NAME, "f1uzip-4.dmMbKI")
 
     #--- Page Mon Compte ---
     btn_gererInfos_CSS = (By.CSS_SELECTOR,"#__brk > div > div.n913wo-5.cuyMWW > div.n913wo-4.fCmDdf > div > main > div > div.r1if2e-1.bqqlfm.sc-1eq6ctx-0.kabTKW > div:nth-child(1) > article > div.gvmwfe-0.o6a45d-0.kfijhj > a")
@@ -74,8 +73,16 @@ class Locators():
     section_age = (By.ID,"birthdate")
     button_terminer_CSS = (By.CSS_SELECTOR,"body > div:nth-child(9) > div > div > div > div > div.izd9z0-4.jQonvK > div > form > div.sc-1skm6pc-1.dkVizr > button")
     button_terminer = (By.CLASS_NAME,"sc-1esye45-2.dVskuE.sc-1skm6pc-2")
+
     #-------- Common Objets ----------
     toaster = (By.CLASS_NAME, "sc-39i7e7-3.bNGjHB")
 
     #----------- Recherche -----------
     recherche_input = (By.CLASS_NAME, "sc-1rj23wu-4.lndKVw")
+
+    #----------- Player --------------
+    playVideoBtn= (By.CLASS_NAME, "f1uzip-4.dmMbKI")
+    volumeBtn = (By.CLASS_NAME, "sc-18pg9dp-1.kRQxtE")
+    listeBtnPlayer = (By.CLASS_NAME, "sc-18pg9dp-1.kUXPYC")
+    tempsEcouler = (By.CLASS_NAME, "sc-1veuio6-0.dktssj.sc-1sefa71-0.dOsukc")
+    
