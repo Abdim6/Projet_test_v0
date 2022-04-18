@@ -5,6 +5,8 @@ pytest --alluredir=allure-results /Users/abdi.bileh17/Documents/Selenium/Projet_
 sleep 3
 pytest --alluredir=allure-results /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_003_HomePage.py --capture=tee-sys
 sleep 3
+pytest --alluredir=allure-results /Users/abdi.bileh17/Documents/Selenium/Projet_test_v0/TestCases/test_004_Player.py --browser chrome --capture=tee-sys
+
 
 
 
