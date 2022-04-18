@@ -32,7 +32,7 @@ class Test_003_HomePage:
                           ReadTitlePage.getTitle6ter(),ReadTitlePage.getTitleguilli(), 
                           ReadTitlePage.getTitleparis_premiere(),ReadTitlePage.getTitleteva(),
                           ReadTitlePage.getTitleLelive()]
-
+        self.nomChaines = ["M6","W9","6ter","Guilli","Paris Prémière","Teva","Chaine Live"]
         for nb in range(nb_chaine):
             # actions = ActionChains(self.driver)
             # actions.move_to_element(chaines[nb])
@@ -47,7 +47,7 @@ class Test_003_HomePage:
             #la vérification du titre de la page home page de la chaine se fait ICI
             assert act_title == self.tabTitles[nb], self.logger.error("***************** Test titre de la page - KO ****************")
             
-            self.logger.info(f"***************** Test titre de la page {nb} - OK ****************") 
+            self.logger.info(f"***************** Test titre de la page {self.nomChaines[nb]} - OK ****************") 
             # le nom de la chaine sera variabiliser dans un tuple 
             # "L'idée serait de renvoyer deux valeurs dans le readpropreties, le titre et le nom de la chaine et puis le recupérer dans le LOg le nom de la chaine"
             
