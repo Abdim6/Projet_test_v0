@@ -188,3 +188,54 @@ def genere_IdRandom():
     rand_password_upper = "".join(random.choice(letters_upper) for i in range(5))
     rand_pwd = rand_password_lower+rand_password_upper + str(5)
     return rand_mail,rand_pwd
+
+
+
+    ############### Un setup pour lancer le driver + permet de choisir le browser au choix #############
+# lance l'app Avec user connecté 
+@pytest.fixture
+def setup_11(browser):
+    baseURL = ReadConfig.getApplicationURL()
+    if browser == "chrome":
+        driver=webdriver.Chrome()
+        print("")
+        print("Nous utilisons CHROME ......")
+    elif browser == "firefox":
+        driver=webdriver.Firefox()
+        print("")
+    else:
+        driver=webdriver.Safari()
+        print("")
+        print("Nous utilisons IE ......")
+    driver.maximize_window()
+    # return driver
+    "------------------"
+    driver.get(baseURL)
+    
+    logger = LogGen.loggen()
+    username = ReadConfig.getUserEmail()
+    password = ReadConfig.getUserPassword()
+    logger.info("***************** DEBUT - De la connexion ****************")
+    
+    "Cliquer sur la modale + btn mon compte"
+    hp=HomePage(driver)
+    hp.clickaccepterTCF() 
+    
+    time.sleep(2)
+    hp.clickMonCompteBtn() 
+    time.sleep(2)
+
+    "Saisi des ID dans OB"
+    lp=Page_OB_Connexion(driver) 
+    lp.setUsername(username)
+    time.sleep(1)
+    lp.setPassword(password)
+    time.sleep(1)
+    lp.clickLogin()   
+    time.sleep(2)
+
+    logger.info("***************** FIN - Connexion User ****************")
+    "-------------------"
+    yield driver
+
+    driver.quit()

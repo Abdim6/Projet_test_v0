@@ -12,9 +12,9 @@ import time
 class Test_004_Player:
     logger = LogGen.loggen()
 
-    def test_lancerUnVOD(self,setup_AvecConnexionUser):
+    def test_lancerUnVOD(self,setup_11):
         self.logger.info("***************** DEBUT - Test_004_Player ****************")
-        self.driver = setup_AvecConnexionUser
+        self.driver = setup_11
         
         "Instancier les classes des POM utilisées"
         self.homePage = HomePage(self.driver)

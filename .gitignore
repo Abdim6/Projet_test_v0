@@ -6,3 +6,5 @@
 **/PageObjects/Old_files
 **/TestCases/Old_Files
 **/Utilities/__pycache__
+**/allure-results
+**/geckodriver.log
